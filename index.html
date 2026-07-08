@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SigriCo — Everyday Fresh · Offshore Aquaculture</title>
+  <meta name="description" content="SigriCo raises premium Seriola in the open Pacific — sustainable, sea-to-table protein from Mexico. Everyday Fresh." />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Type to match sigrico.com: Futura LT → Jost (geometric sans) · Caudex (serif accent) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <a class="nav__logo" href="#top" aria-label="SigriCo home">
+      <img src="images/sigrico-logo.png" alt="SigriCo" />
+    </a>
+    <div class="nav__links">
+      <a href="#species">Species</a>
+      <a href="#method">Method</a>
+      <a href="#sustainability">Sustainability</a>
+      <a href="#reach">Reach</a>
+    </div>
+    <a class="nav__cta" href="#contact">Get in touch →</a>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <canvas id="particles"></canvas>
+    <div class="rays"></div>
+    <div class="hero__inner">
+      <p class="eyebrow hero__eyebrow">Offshore Aquaculture · México</p>
+      <h1>
+        <span class="l1">Raised in the</span>
+        <span class="l2 serif-it glow">open ocean</span>
+      </h1>
+      <p class="hero__sub">Everyday Fresh — sustainable Seriola from the Mexican Pacific</p>
+    </div>
+    <div class="hero__cue">
+      <span>Descend</span>
+      <i></i>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== STATEMENT ===================== -->
+    <section class="section statement">
+      <p class="eyebrow reveal"><span class="idx">01</span>The Philosophy</p>
+      <h2 class="big reveal d1">
+        Aquaculture is the animal protein with the <span class="serif-it glow">lightest footprint</span> on our planet.
+      </h2>
+      <p class="lede reveal d2">
+        SigriCo is a Mexican company built to position México as the world reference in
+        open-ocean Seriola farming — proving that the most responsible protein can also be
+        the most exceptional.
+      </p>
+    </section>
+
+    <!-- ===================== SPECIES ===================== -->
+    <section class="section split" id="species">
+      <div class="split__body">
+        <p class="eyebrow reveal"><span class="idx">02</span>The Species</p>
+        <h2 class="reveal d1">Seriola,<br /><span class="serif-it glow">jewel of the Pacific</span></h2>
+        <p class="reveal d2">
+          A prized, buttery yellowtail of the amberjack family — the sushi counter's
+          hamachi and kanpachi. Firm, clean, and rich in omega-3.
+        </p>
+        <p class="reveal d2">
+          We raise it where it belongs: in the endemic, pristine waters of the Mexican
+          Pacific, under the exact conditions the species has thrived in for millennia.
+        </p>
+        <div class="tags reveal d3">
+          <span class="tag">Sushi-grade</span>
+          <span class="tag">Omega-3 rich</span>
+          <span class="tag">Pacific-endemic</span>
+        </div>
+      </div>
+      <div class="split__media reveal d2">
+        <div class="media photo" style="--img:url('images/ph-fish.jpg')">
+          <span class="media__label">Schooling in the open Pacific</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STATS ===================== -->
+    <section class="section" style="padding-top:0;">
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat__num">4<small>×</small></div>
+          <div class="stat__label">Better feed conversion<br />than land livestock</div>
+        </div>
+        <div class="stat reveal d1">
+          <div class="stat__num">100<small>%</small></div>
+          <div class="stat__label">Open-ocean<br />raised</div>
+        </div>
+        <div class="stat reveal d2">
+          <div class="stat__num">0<small>abx</small></div>
+          <div class="stat__label">No routine<br />antibiotics</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== METHOD ===================== -->
+    <section class="section" id="method">
+      <div style="text-align:center;">
+        <p class="eyebrow reveal"><span class="idx">03</span>The Method</p>
+        <h2 class="reveal d1" style="font-size:clamp(2rem,6vw,4.6rem);margin-top:1.4rem;">
+          Farmed offshore,<br /><span class="serif-it glow">not onshore</span>
+        </h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__n">/ 01</div>
+          <h3>Deep, open water</h3>
+          <p>Pens sit far from shore in high-energy currents — the ocean does the cleaning, naturally.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step__n">/ 02</div>
+          <h3>Low density</h3>
+          <p>Generous space per fish means calmer, stronger stock and cleaner water around them.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step__n">/ 03</div>
+          <h3>Endemic conditions</h3>
+          <p>We farm the species where it is native, so nothing has to be forced against nature.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step__n">/ 04</div>
+          <h3>Cold chain from day one</h3>
+          <p>Harvest to ice to export in hours — the freshness of the ocean, kept intact.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SUSTAINABILITY ===================== -->
+    <section class="section split rev" id="sustainability">
+      <div class="split__media reveal">
+        <div class="media wide photo" style="--img:url('images/ph-underwater.jpg')">
+          <span class="media__label">Light through open water</span>
+        </div>
+      </div>
+      <div class="split__body">
+        <p class="eyebrow reveal"><span class="idx">04</span>Responsibility</p>
+        <h2 class="reveal d1">The sea,<br /><span class="serif-it glow">left better</span></h2>
+        <p class="reveal d2">
+          Aquaculture is the lowest-impact way to produce animal protein — less land, less
+          fresh water, and a smaller carbon footprint than any farm on shore.
+        </p>
+        <p class="reveal d2">
+          Our commitment is simple: grow more food from the ocean while giving more back to it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section class="section" id="gallery">
+      <div style="text-align:center;">
+        <p class="eyebrow reveal"><span class="idx">05</span>From sea to table</p>
+        <h2 class="reveal d1" style="font-size:clamp(2rem,6vw,4.6rem);margin-top:1.4rem;">
+          The <span class="serif-it glow">SigriCo</span> difference
+        </h2>
+      </div>
+      <div class="gallery__grid">
+        <div class="gcell a photo reveal"    style="--img:url('images/ph-reef.jpg')"><span>Pacific reef</span></div>
+        <div class="gcell b photo reveal d1" style="--img:url('images/ph-sunset.jpg')"><span>Open ocean</span></div>
+        <div class="gcell c photo reveal d2" style="--img:url('images/ph-surface.jpg')"><span>Surface calm</span></div>
+        <div class="gcell d photo reveal d1" style="--img:url('images/ph-fish.jpg')"><span>The school</span></div>
+        <div class="gcell e photo reveal d2" style="--img:url('images/ph-aerial.jpg')"><span>Coastline</span></div>
+        <div class="gcell f photo reveal d3" style="--img:url('images/ph-underwater.jpg')"><span>The deep</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== REACH ===================== -->
+    <section class="section" id="reach">
+      <div class="reach__head">
+        <p class="eyebrow reveal"><span class="idx">06</span>Global Reach</p>
+        <h2 class="reveal d1">From the Pacific<br /><span class="serif-it glow">to the world</span></h2>
+      </div>
+      <div class="markets">
+        <div class="market reveal"><h3>México</h3><p>Farmed, harvested, and processed at the source in the Mexican Pacific.</p></div>
+        <div class="market reveal d1"><h3>USA</h3><p>Fresh sushi-grade Seriola, flown to West Coast and national distributors.</p></div>
+        <div class="market reveal d2"><h3>Asia</h3><p>Meeting the world's most demanding sashimi markets at the standard they expect.</p></div>
+        <div class="market reveal d3"><h3>Europe</h3><p>Premium supply for chefs and importers seeking a responsible origin.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+      <p class="eyebrow reveal"><span class="idx">07</span>Contact</p>
+      <h2 class="reveal d1">Let's talk <span class="serif-it glow">fresh</span></h2>
+      <p class="contact__lede reveal d2">Send us an inquiry — we'll get back to you within one business day.</p>
+
+      <!-- Inline AJAX form (FormSubmit, no signup — first submission triggers a one-time
+           activation email to the primary address).
+           · PRIMARY recipient  → replace YOUR_EMAIL in the action below.
+           · SECOND recipient(s) → put in the _cc field further down (comma-separate for more,
+             or leave empty for a single inbox). -->
+      <form class="cform reveal d2" id="contactForm" action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+        <div class="cform__row">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-company">Company <span class="opt">(optional)</span></label>
+          <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Company or restaurant" />
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="4" required placeholder="Tell us what you're looking for — species, volumes, markets, timing…"></textarea>
+        </div>
+
+        <!-- FormSubmit options + honeypot (spam trap) -->
+        <input type="hidden" name="_subject" value="New inquiry from sigrico.com" />
+        <input type="hidden" name="_cc" value="" /> <!-- 2nd recipient(s): e.g. "ventas@sigrico.com" (comma-separate for more; leave empty for one) -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <button class="btn-gold" type="submit" id="cf-submit">
+          <span class="btn-label">Send inquiry</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="cform__status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="cform__done reveal" id="contactDone" hidden>
+        <h3>Thank you — your inquiry is <span class="serif-it glow">on its way</span>.</h3>
+        <p>We've received your message and will reply within one business day.</p>
+      </div>
+
+      <p class="contact__addr reveal d3">
+        Juan Salvador Agraz #40, Piso 5, Suite 505 · Ciudad de México, México
+      </p>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <img src="images/sigrico-logo-white.png" alt="SigriCo — Everyday Fresh" />
+    <p class="footer__note">Everyday Fresh · © 2026 SigriCo · Offshore Aquaculture</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
