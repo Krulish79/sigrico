@@ -414,6 +414,33 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 .gcell.f { grid-column: span 2; grid-row: span 1; }
 
 /* ============================================================
+   THE DIFFERENCE (value section)
+   ============================================================ */
+.diff__head { text-align: center; }
+.diff__head h2 { font-size: clamp(2rem, 6vw, 4.6rem); margin-top: 1.4rem; }
+.diff__intro {
+  max-width: 54ch; margin: 1.8rem auto 0; color: var(--muted);
+  font-size: clamp(0.98rem, 1.4vw, 1.12rem);
+}
+.diff__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.6rem, 4vw, 3rem); margin-top: clamp(3rem, 6vh, 4.5rem);
+}
+.diff__item { border-top: 1px solid var(--line-2); padding-top: 1.4rem; }
+.diff__item h3 { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 300; letter-spacing: -0.01em; }
+.diff__item p { color: var(--muted); margin-top: 0.9rem; font-size: 0.98rem; max-width: 34ch; }
+.diff__media {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-top: clamp(3rem, 6vh, 4.5rem);
+}
+.diff__media .media { aspect-ratio: 16 / 11; }
+@media (max-width: 820px) {
+  .diff__grid { grid-template-columns: 1fr; gap: 0; }
+  .diff__item { padding: 1.4rem 0; }
+  .diff__media { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    REACH
    ============================================================ */
 .reach__head { text-align: center; margin-bottom: 4rem; }
