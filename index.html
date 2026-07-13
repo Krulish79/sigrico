@@ -286,12 +286,10 @@
       <h2 class="reveal d1">Let's talk <span class="serif-it glow">fresh</span></h2>
       <p class="contact__lede reveal d2">Send us an inquiry — we'll get back to you within one business day.</p>
 
-      <!-- Inline AJAX form (FormSubmit, no signup — first submission triggers a one-time
-           activation email to the primary address).
-           · PRIMARY recipient  → replace YOUR_EMAIL in the action below.
-           · SECOND recipient(s) → put in the _cc field further down (comma-separate for more,
-             or leave empty for a single inbox). -->
-      <form class="cform reveal d2" id="contactForm" action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+      <!-- Inline AJAX form (FormSubmit, no signup). Inquiries go directly to
+           rzambrano@isuriacorp.com. The FIRST submission triggers a one-time activation
+           email to that address — click the link once and the form is live thereafter. -->
+      <form class="cform reveal d2" id="contactForm" action="https://formsubmit.co/rzambrano@isuriacorp.com" method="POST">
         <div class="cform__row">
           <div class="field">
             <label for="cf-name">Name</label>
@@ -313,7 +311,7 @@
 
         <!-- FormSubmit options + honeypot (spam trap) -->
         <input type="hidden" name="_subject" value="New inquiry from sigrico.com" />
-        <input type="hidden" name="_cc" value="" /> <!-- 2nd recipient(s): e.g. "ventas@sigrico.com" (comma-separate for more; leave empty for one) -->
+        <input type="hidden" name="_cc" value="" /> <!-- unused: single recipient (rzambrano@isuriacorp.com) -->
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
         <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
