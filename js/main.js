@@ -108,7 +108,7 @@
 
   let W, H, motes, orbs, beams, raf, t = 0;
   void rays; // rays keeps its CSS ambient wash; canvas now draws the volumetric shafts
-  const COLORS = ["217,180,92", "187,146,46", "42,185,198"]; // gold-lit / gold / aqua (gold leads)
+  const COLORS = ["42,185,198", "22,164,176", "237,242,248"]; // aqua / teal / ice — bubbles read blue-white
 
   // pointer parallax (eased)
   const mouse = { x: 0.5, y: 0.5 };
@@ -129,10 +129,10 @@
     motes = Array.from({ length: count }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: Math.random() * 1.8 + 0.4,
+      r: Math.random() * 2.6 + 0.8,           // a bit bigger
       vy: -(Math.random() * 0.3 + 0.05),
       vx: (Math.random() - 0.5) * 0.18,
-      a: Math.random() * 0.5 + 0.18,
+      a: Math.random() * 0.55 + 0.26,         // more pronounced
       tw: Math.random() * Math.PI * 2,
       tws: Math.random() * 0.02 + 0.008,
       depth: Math.random() * 0.7 + 0.3,           // parallax depth
@@ -146,14 +146,14 @@
       ph: Math.random() * Math.PI * 2,
       sp: 0.004 + Math.random() * 0.004,       // slow sway speed (per frame)
       amp: 0.03 + Math.random() * 0.05,        // sway amplitude (rad)
-      a: 0.14 + Math.random() * 0.13,          // base brightness (brighter)
-      c: i % 4 === 1 ? "42,185,198" : "217,180,92",   // mostly golden sunlight, one teal shaft
+      a: 0.20 + Math.random() * 0.15,          // base brightness (more pronounced)
+      c: i % 4 === 1 ? "22,164,176" : "42,185,198",   // all-blue shafts (two blue tones)
     }));
     // a few large soft bioluminescent bloom orbs
     orbs = Array.from({ length: 5 }, (_, i) => ({
       x: Math.random() * W,
       y: Math.random() * H * 0.9,
-      r: Math.random() * 120 + 90,
+      r: Math.random() * 130 + 100,
       vy: -(Math.random() * 0.12 + 0.03),
       vx: (Math.random() - 0.5) * 0.06,
       tw: Math.random() * Math.PI * 2,
@@ -199,7 +199,7 @@
     for (const o of orbs) {
       o.y += o.vy; o.x += o.vx; o.tw += 0.006;
       if (o.y < -o.r) { o.y = H + o.r; o.x = Math.random() * W; }
-      const glow = 0.05 + 0.05 * (0.5 + 0.5 * Math.sin(o.tw));
+      const glow = 0.07 + 0.06 * (0.5 + 0.5 * Math.sin(o.tw));
       const ox = o.x + par.x * o.depth, oy = o.y + par.y * o.depth;
       const g = ctx.createRadialGradient(ox, oy, 0, ox, oy, o.r);
       g.addColorStop(0, `rgba(${o.c},${glow})`);
@@ -219,7 +219,7 @@
       ctx.beginPath();
       ctx.arc(px, py, p.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${p.c},${alpha})`;
-      ctx.shadowBlur = 10;
+      ctx.shadowBlur = 12;
       ctx.shadowColor = `rgba(${p.c},0.9)`;
       ctx.fill();
     }

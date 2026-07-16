@@ -151,22 +151,22 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
   background:
     conic-gradient(from 180deg at 50% -6%,
       transparent 0deg,
-      rgba(217, 180, 92, 0.00) 58deg,
-      rgba(217, 180, 92, 0.20) 76deg,
+      rgba(42, 185, 198, 0.00) 58deg,
+      rgba(42, 185, 198, 0.24) 76deg,
       transparent 81deg,
       transparent 92deg,
-      rgba(187, 146, 46, 0.30) 102deg,
-      rgba(217, 180, 92, 0.10) 106deg,
+      rgba(22, 164, 176, 0.34) 102deg,
+      rgba(42, 185, 198, 0.12) 106deg,
       transparent 110deg,
       transparent 120deg,
-      rgba(217, 180, 92, 0.16) 127deg,
+      rgba(42, 185, 198, 0.20) 127deg,
       transparent 132deg,
       transparent 146deg,
-      rgba(187, 146, 46, 0.26) 155deg,
+      rgba(22, 164, 176, 0.30) 155deg,
       transparent 160deg,
       transparent 360deg);
   filter: blur(7px);
-  opacity: 0.4; /* faint ambient base — the animated canvas shafts (main.js) lead */
+  opacity: 0.55; /* ambient base — the animated canvas shafts (main.js) lead */
   animation: sway 16s ease-in-out infinite alternate;
   transform-origin: 50% 0%;
   will-change: transform, opacity;
@@ -174,14 +174,14 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 /* soft top light-wash to seat the beams */
 .rays::before {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(70% 55% at 50% -8%, rgba(217, 180, 92, 0.16), transparent 60%);
+  background: radial-gradient(70% 55% at 50% -8%, rgba(42, 185, 198, 0.18), transparent 60%);
   animation: pulseWash 8s ease-in-out infinite alternate;
 }
 @keyframes pulseWash { from { opacity: 0.6; } to { opacity: 1; } }
 .hero::after { /* vignette + depth gradient */
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    radial-gradient(120% 90% at 50% -10%, rgba(217,180,92,0.12), transparent 55%),
+    radial-gradient(120% 90% at 50% -10%, rgba(42,185,198,0.12), transparent 55%),
     radial-gradient(140% 120% at 50% 120%, rgba(0,0,0,0.6), transparent 60%),
     linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
 }
