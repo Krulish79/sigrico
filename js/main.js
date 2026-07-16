@@ -91,7 +91,7 @@
 
   let W, H, motes, orbs, beams, raf, t = 0;
   void rays; // rays keeps its CSS ambient wash; canvas now draws the volumetric shafts
-  const COLORS = ["95,224,206", "22,164,176", "217,180,92"]; // aqua / teal / gold
+  const COLORS = ["42,185,198", "22,164,176", "217,180,92"]; // aqua / teal / gold
 
   // pointer parallax (eased)
   const mouse = { x: 0.5, y: 0.5 };
@@ -130,7 +130,7 @@
       sp: 0.004 + Math.random() * 0.004,       // slow sway speed (per frame)
       amp: 0.03 + Math.random() * 0.05,        // sway amplitude (rad)
       a: 0.14 + Math.random() * 0.13,          // base brightness (brighter)
-      c: i % 4 === 1 ? "217,180,92" : "95,224,206",
+      c: i % 4 === 1 ? "217,180,92" : "42,185,198",
     }));
     // a few large soft bioluminescent bloom orbs
     orbs = Array.from({ length: 5 }, (_, i) => ({
