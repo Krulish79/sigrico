@@ -36,6 +36,23 @@
     revealEls.forEach((el) => el.classList.add("in"));
   }
 
+  /* ---------- Interlude videos: play only while on-screen ---------- */
+  const ilVideos = document.querySelectorAll(".interlude__video");
+  ilVideos.forEach((v) => { v.muted = true; });   // required for autoplay
+  if (ilVideos.length && !reduceMotion && "IntersectionObserver" in window) {
+    const vio = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.play().catch(() => {});
+          else e.target.pause();
+        });
+      },
+      { threshold: 0.25 }
+    );
+    ilVideos.forEach((v) => vio.observe(v));
+  }
+  // reduced motion → leave paused; the poster frame shows.
+
   /* ---------- Contact form: submit inline, never leave the page ---------- */
   const form = document.getElementById("contactForm");
   if (form) {
