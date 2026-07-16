@@ -204,6 +204,16 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
   font-size: 0.81rem; /* label size (boss-tuned) */
   letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--muted);
+  max-width: 860px; margin-left: auto; margin-right: auto;
+  line-height: 2;
+}
+.hero__sub .fish {           /* species names: title-case italic, house serif */
+  font-family: var(--serif);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.06em;
+  font-size: 1.12em;
+  color: var(--ink);
 }
 /* entrance */
 .hero__eyebrow { animation: heroIn 1.1s var(--ease) both 0.15s; }
