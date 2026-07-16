@@ -244,6 +244,7 @@ def render(html_path, pdf_path):
         CHROME, "--headless", "--disable-gpu", "--no-sandbox",
         "--allow-file-access-from-files",
         "--no-pdf-header-footer",
+        "--virtual-time-budget=10000",   # let base64 fonts finish loading before print
         f"--print-to-pdf={pdf_path}",
         f"file://{html_path}",
     ], check=True, capture_output=True, timeout=180)
