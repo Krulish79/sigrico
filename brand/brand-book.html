@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SigriCo — Brand Identity Book</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root{
+  --teal:#16A4B0; --gold:#BB922E; --abyss:#03100E; --deep:#06201C;
+  --aqua:#5FE0CE; --gold-lit:#D9B45C; --ink:#0F1A18; --grey:#6E7C79;
+  --mist:#F2F6F5; --paper:#FFFFFF; --rule:#D8E0DE;
+  --sans:"Futura LT",Avenir,"Helvetica Neue",sans-serif;
+  --serif:"Caudex",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{ size:279.4mm 215.9mm; margin:0; }        /* US Letter, landscape */
+html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+body{ font-family:var(--sans); font-weight:300; color:var(--ink); }
+
+.page{
+  position:relative; width:279.4mm; height:215.9mm; overflow:hidden;
+  padding:20mm 22mm; page-break-after:always; break-after:page;
+  display:flex; flex-direction:column;
+}
+.page:last-child{ page-break-after:auto; break-after:auto; }
+.page--dark{ background:var(--abyss); color:#EAF3F0; }
+.page--deep{ background:var(--deep); color:#EAF3F0; }
+.page--mist{ background:var(--mist); }
+
+/* shared bits */
+.serif{ font-family:var(--serif); } .it{ font-style:italic; }
+.te{ color:var(--teal) } .go{ color:var(--gold) } .aq{ color:var(--aqua) }
+.kicker{
+  font-family:var(--sans); font-weight:500; text-transform:uppercase;
+  letter-spacing:0.28em; font-size:8pt; color:var(--teal);
+}
+.kicker .n{ color:var(--gold); margin-right:1em }
+.page--dark .kicker, .page--deep .kicker{ color:var(--aqua) }
+h1,h2,h3{ font-weight:300; letter-spacing:-0.01em; line-height:1.12 }
+.h-sec{ font-size:30pt; margin:5mm 0 2mm }
+.h-sub{ font-family:var(--serif); font-style:italic; font-size:13pt; color:var(--grey); font-weight:400 }
+.page--dark .h-sub,.page--deep .h-sub{ color:rgba(234,243,240,0.6) }
+.rule{ width:52pt; height:2pt; background:var(--teal); margin:5mm 0 8mm }
+.body{ font-size:10pt; line-height:1.65; max-width:150mm }
+.foot{
+  position:absolute; left:22mm; right:22mm; bottom:11mm;
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--sans); font-weight:500; font-size:6.6pt;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--grey);
+}
+.page--dark .foot,.page--deep .foot{ color:rgba(234,243,240,0.4) }
+.foot .fish{ height:9pt; opacity:.8 }
+
+/* bilingual two-column body */
+.bi{ display:grid; grid-template-columns:1fr 1fr; gap:14mm; margin-top:3mm }
+.bi .lang{ font-family:var(--sans); font-weight:500; font-size:6.5pt; letter-spacing:0.24em;
+  text-transform:uppercase; color:var(--teal); margin-bottom:2.5mm; display:block }
+.bi p{ font-size:9.4pt; line-height:1.62; margin-bottom:3mm; text-align:justify; hyphens:auto }
+.bi.es .lang{ color:var(--gold) }
+
+/* ---------- COVER ---------- */
+.cover{ justify-content:space-between; }
+.cover::after{ content:""; position:absolute; inset:0;
+  background:conic-gradient(from 180deg at 50% -6%,
+    transparent 72deg,rgba(95,224,206,0.12) 82deg,transparent 88deg,
+    transparent 98deg,rgba(22,164,176,0.16) 106deg,transparent 112deg,
+    transparent 128deg,rgba(95,224,206,0.09) 134deg,transparent 140deg,
+    transparent 360deg); filter:blur(7px); }
+.cover>*{ position:relative; z-index:1 }
+.cover__logo{ width:70mm }
+.cover h1{ font-size:52pt; color:#fff; line-height:0.98 }
+.cover .lead{ font-size:12pt; color:#EAF3F0; max-width:150mm; margin-top:5mm; line-height:1.5 }
+.cover .sub{ font-family:var(--serif); font-style:italic; font-size:13pt; color:var(--aqua); margin-top:4mm }
+.cover__meta{ display:flex; justify-content:space-between; align-items:flex-end }
+.cover__meta .v{ font-size:7.5pt; letter-spacing:0.2em; text-transform:uppercase; color:rgba(234,243,240,0.55); line-height:1.9 }
+.cover__meta .fish{ width:16mm; opacity:.9 }
+
+/* ---------- CONTENTS ---------- */
+.toc{ }
+.toc ol{ list-style:none; margin-top:6mm; columns:2; column-gap:20mm }
+.toc li{ display:flex; align-items:baseline; gap:4mm; padding:3mm 0;
+  border-bottom:0.5pt solid var(--rule); break-inside:avoid; font-size:10pt }
+.toc .n{ font-family:var(--sans); font-weight:500; color:var(--gold); min-width:8mm; font-size:8.5pt }
+.toc .t{ flex:1 } .toc .es{ color:var(--grey); font-family:var(--serif); font-style:italic; font-size:8.5pt }
+
+/* ---------- LOGO SHOWCASE ---------- */
+.showcase{ align-items:center; justify-content:center; text-align:center }
+.showcase img{ width:150mm }
+.showcase .cap{ margin-top:10mm; font-size:8pt; letter-spacing:0.2em; text-transform:uppercase; color:rgba(234,243,240,0.5) }
+
+.split2{ display:grid; grid-template-columns:1fr 1fr; gap:16mm; align-items:center; flex:1 }
+.panel{ border:0.75pt solid var(--rule); border-radius:3pt; aspect-ratio:16/10;
+  display:flex; align-items:center; justify-content:center; position:relative }
+.panel img{ width:64% }
+.panel.dark{ background:var(--abyss); border-color:transparent }
+.panel.teal{ background:var(--teal); border-color:transparent }
+.panel.gold{ background:var(--gold); border-color:transparent }
+.panel.mist{ background:var(--mist) }
+.panel .tag{ position:absolute; left:6pt; bottom:5pt; font-size:6pt; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--grey) }
+.panel.dark .tag,.panel.teal .tag,.panel.gold .tag{ color:rgba(255,255,255,0.7) }
+.grid4{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8mm;
+  flex:none; height:128mm; margin-top:6mm }
+.grid4 .panel{ aspect-ratio:auto; height:100% }
+
+/* clear space / min size */
+.cs{ display:grid; grid-template-columns:1.1fr 1fr; gap:16mm; align-items:center; flex:1 }
+.cs__box{ position:relative; background:var(--mist); padding:16mm; border-radius:3pt }
+.cs__inner{ position:relative; border:0.75pt dashed var(--teal); padding:12mm; display:flex; justify-content:center }
+.cs__inner img{ width:70% }
+.cs__x{ position:absolute; font-family:var(--serif); font-style:italic; color:var(--teal); font-size:11pt }
+.sizes{ display:flex; align-items:flex-end; gap:10mm; margin-top:6mm }
+.sizes>div{ text-align:center } .sizes img{ display:block; margin-bottom:3mm }
+.sizes .lbl{ font-size:7pt; letter-spacing:0.14em; text-transform:uppercase; color:var(--grey) }
+
+/* misuse */
+.donts{ display:grid; grid-template-columns:repeat(3,1fr); gap:10mm; flex:1; align-content:center }
+.dont{ }
+.dont .frame{ aspect-ratio:16/10; background:var(--mist); border-radius:3pt; position:relative;
+  display:flex; align-items:center; justify-content:center; overflow:hidden }
+.dont .frame img{ width:60% }
+.dont .no{ position:absolute; top:5pt; right:6pt; width:13pt; height:13pt; border-radius:50%;
+  background:#C0392B; color:#fff; font-size:9pt; display:flex; align-items:center; justify-content:center; font-weight:500 }
+.dont p{ font-size:8pt; color:var(--grey); margin-top:3mm; line-height:1.5 }
+
+/* color */
+.swatches{ display:grid; grid-template-columns:1fr 1fr; gap:9mm; flex:1; align-content:center }
+.sw{ display:flex; gap:6mm; align-items:stretch }
+.sw .chip{ width:44mm; border-radius:3pt; flex:none; position:relative }
+.sw .chip span{ position:absolute; left:5pt; bottom:4pt; font-size:6.5pt; letter-spacing:0.14em;
+  text-transform:uppercase; color:rgba(255,255,255,0.8) }
+.sw .meta{ font-size:8.4pt; line-height:1.75; align-self:center }
+.sw .meta .nm{ font-weight:500; font-size:10pt; letter-spacing:-0.01em; display:block; margin-bottom:1.5mm }
+.sw .meta .val{ color:var(--grey); font-variant-numeric:tabular-nums }
+.sw .meta .val b{ color:var(--ink); font-weight:500 }
+
+/* mini palette bar */
+.pbar{ display:flex; height:10mm; border-radius:3pt; overflow:hidden; margin-top:5mm }
+.pbar div{ flex:1 }
+
+/* typography */
+.type{ display:grid; grid-template-columns:1fr 1fr; gap:16mm; flex:1; align-content:center }
+.type__spec .glyphs{ font-size:44pt; line-height:1.05; letter-spacing:-0.01em }
+.type__spec .name{ font-size:16pt; margin-bottom:1mm } .type__spec .role{ color:var(--grey); font-size:9pt; margin-bottom:5mm }
+.weights span{ display:block; font-size:15pt; margin-bottom:1.5mm }
+.scale > div{ border-top:0.5pt solid var(--rule); padding:2.5mm 0; display:flex; align-items:baseline; gap:6mm }
+.scale .lbl{ font-size:6.5pt; letter-spacing:0.16em; text-transform:uppercase; color:var(--grey); min-width:22mm }
+
+/* voice */
+.voice{ display:grid; grid-template-columns:1fr 1fr; gap:12mm; flex:1; align-content:center }
+.pill{ border:0.75pt solid var(--rule); border-radius:3pt; padding:6mm 7mm; margin-bottom:6mm }
+.pill h4{ font-weight:500; font-size:11pt; margin-bottom:2mm } .pill .is{ color:var(--teal) } .pill .isnt{ color:var(--grey) }
+.pill p{ font-size:8.6pt; line-height:1.55 }
+.words{ display:flex; flex-wrap:wrap; gap:4mm; margin-top:3mm }
+.word{ font-family:var(--serif); font-style:italic; font-size:13pt; color:var(--teal);
+  border:0.5pt solid var(--rule); border-radius:20pt; padding:2mm 6mm }
+
+/* closing */
+.closing{ align-items:center; justify-content:center; text-align:center }
+.closing img{ width:60mm; margin-bottom:10mm }
+.closing .tag{ font-family:var(--serif); font-style:italic; font-size:20pt; color:var(--aqua) }
+.closing .addr{ margin-top:10mm; font-size:8pt; letter-spacing:0.18em; text-transform:uppercase; color:rgba(234,243,240,0.5); line-height:2 }
+</style>
+</head>
+<body>
+
+<!-- 01 COVER -->
+<section class="page page--dark cover">
+  <div><img class="cover__logo" src="assets/logo-primary-white.png" alt="SigriCo"></div>
+  <div>
+    <p class="kicker" style="margin-bottom:6mm">Brand Identity Book · Manual de Identidad</p>
+    <h1>Brand<br>Identity</h1>
+    <p class="lead">The complete visual and verbal identity system for SigriCo — how our brand looks, speaks and behaves, everywhere.</p>
+    <p class="sub">Everyday Fresh</p>
+  </div>
+  <div class="cover__meta">
+    <div class="v">SIGRICO, S.A.P.I. de C.V.<br>Version 1.0 · 2026</div>
+    <img class="fish" src="assets/mark-fish-gold.png" alt="">
+  </div>
+</section>
+
+<!-- 02 CONTENTS -->
+<section class="page toc">
+  <p class="kicker"><span class="n">—</span>Contents · Contenido</p>
+  <h2 class="h-sec">Contents</h2>
+  <div class="rule"></div>
+  <ol>
+    <li><span class="n">01</span><span class="t">Brand story <span class="es">· La marca</span></span></li>
+    <li><span class="n">02</span><span class="t">Essence &amp; tagline <span class="es">· Esencia</span></span></li>
+    <li><span class="n">03</span><span class="t">The logo <span class="es">· El logotipo</span></span></li>
+    <li><span class="n">04</span><span class="t">The mark <span class="es">· El símbolo</span></span></li>
+    <li><span class="n">05</span><span class="t">Logo variations <span class="es">· Versiones</span></span></li>
+    <li><span class="n">06</span><span class="t">Clear space &amp; sizing <span class="es">· Área &amp; tamaño</span></span></li>
+    <li><span class="n">07</span><span class="t">Logo misuse <span class="es">· Usos incorrectos</span></span></li>
+    <li><span class="n">08</span><span class="t">Primary colors <span class="es">· Color primario</span></span></li>
+    <li><span class="n">09</span><span class="t">Extended palette <span class="es">· Paleta extendida</span></span></li>
+    <li><span class="n">10</span><span class="t">Typography — Futura <span class="es">· Tipografía</span></span></li>
+    <li><span class="n">11</span><span class="t">Typography — Caudex <span class="es">· Tipografía</span></span></li>
+    <li><span class="n">12</span><span class="t">Photography <span class="es">· Fotografía</span></span></li>
+    <li><span class="n">13</span><span class="t">Voice &amp; tone <span class="es">· Voz &amp; tono</span></span></li>
+    <li><span class="n">14</span><span class="t">Contact <span class="es">· Contacto</span></span></li>
+  </ol>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>02</span></div>
+</section>
+
+<!-- 03 BRAND STORY -->
+<section class="page">
+  <p class="kicker"><span class="n">01</span>Brand story</p>
+  <h2 class="h-sec">Born of the <span class="serif it te">open Pacific</span></h2>
+  <p class="h-sub">La marca · Nacidos del Pacífico abierto</p>
+  <div class="rule"></div>
+  <div class="bi">
+    <div class="lang-col"><span class="lang">English</span>
+      <p>SigriCo is a Mexican company built to raise premium native fish in the open waters of the Pacific — proving that the most responsible protein on earth can also be the most exceptional.</p>
+      <p>We farm five species native to the Mexican Pacific in submersible ocean cages, far offshore, without antibiotics and with full traceability from cage to plate. Our brand exists to make that difference visible: clean, precise, and unmistakably of the sea.</p>
+      <p>This book defines how SigriCo looks and sounds — so that every touchpoint, from a business card to the side of a vessel, feels like it came from the same ocean.</p>
+    </div>
+    <div class="lang-col es"><span class="lang">Español</span>
+      <p>SigriCo es una empresa mexicana creada para cultivar peces nativos premium en las aguas abiertas del Pacífico — demostrando que la proteína más responsable del planeta también puede ser la más excepcional.</p>
+      <p>Cultivamos cinco especies nativas del Pacífico mexicano en jaulas oceánicas sumergibles, mar adentro, sin antibióticos y con trazabilidad completa de la jaula al plato. Nuestra marca existe para hacer visible esa diferencia: limpia, precisa e inconfundiblemente del mar.</p>
+      <p>Este manual define cómo se ve y cómo habla SigriCo — para que cada punto de contacto, de una tarjeta a un barco, parezca venir del mismo océano.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>03</span></div>
+</section>
+
+<!-- 04 ESSENCE & TAGLINE -->
+<section class="page page--deep">
+  <p class="kicker"><span class="n">02</span>Essence &amp; tagline</p>
+  <h2 class="h-sec" style="color:#fff">Everyday <span class="serif it aq">Fresh</span></h2>
+  <p class="h-sub">Esencia · Frescura, todos los días</p>
+  <div class="rule"></div>
+  <div class="bi">
+    <div class="lang-col"><span class="lang">English</span>
+      <p style="color:#EAF3F0"><b style="font-weight:500">Everyday Fresh</b> is more than a tagline — it is the promise. Fresh from the ocean, fresh in thinking, fresh every single day. It captures both what we deliver (impeccable, just-harvested fish) and how we work (modern, sustainable, exacting).</p>
+      <p style="color:#EAF3F0"><b class="aq">Our essence in one line:</b> the freshness of the open ocean, made dependable.</p>
+      <p style="color:#EAF3F0"><b class="aq">Three words we live by:</b> Native · Responsible · Exceptional.</p>
+    </div>
+    <div class="lang-col es"><span class="lang">Español</span>
+      <p style="color:#EAF3F0"><b style="font-weight:500">Everyday Fresh</b> es más que un eslogan — es la promesa. Fresco del océano, fresco en el pensar, fresco cada día. Refleja lo que entregamos (pescado impecable, recién cosechado) y cómo trabajamos (moderno, sustentable, riguroso).</p>
+      <p style="color:#EAF3F0"><b class="aq">Nuestra esencia en una línea:</b> la frescura del océano abierto, hecha confiable.</p>
+      <p style="color:#EAF3F0"><b class="aq">Tres palabras que nos guían:</b> Nativo · Responsable · Excepcional.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>04</span></div>
+</section>
+
+<!-- 05 THE LOGO (showcase) -->
+<section class="page page--dark showcase">
+  <p class="kicker" style="position:absolute;top:20mm;left:22mm"><span class="n">03</span>The logo</p>
+  <img src="assets/logo-primary-white.png" alt="SigriCo primary logo">
+  <p class="cap">Primary logotype · Logotipo primario</p>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>05</span></div>
+</section>
+
+<!-- 06 THE MARK -->
+<section class="page">
+  <p class="kicker"><span class="n">04</span>The mark</p>
+  <div class="split2">
+    <div style="text-align:center">
+      <div class="panel dark" style="aspect-ratio:1/1;max-width:120mm;margin:0 auto">
+        <img src="assets/mark-fish-color.png" style="width:52%" alt="SigriCo mark">
+      </div>
+    </div>
+    <div>
+      <h2 class="h-sec" style="margin-top:0">The <span class="serif it te">Ichthys</span></h2>
+      <p class="h-sub">El símbolo · Fe y mar</p>
+      <div class="rule"></div>
+      <p class="body"><b style="font-weight:500">EN —</b> The mark unites two ideas: the open circle of the ocean horizon and the <em class="serif it">Ichthys</em> fish resting on it — a quiet nod to faith, and to the fish that is our life's work. The circle doubles as the final "O" of the wordmark, so the mark and name are one.</p>
+      <p class="body" style="margin-top:4mm; color:var(--grey)"><b style="font-weight:500; color:var(--ink)">ES —</b> El símbolo une dos ideas: el círculo abierto del horizonte oceánico y el pez <em class="serif it">Ichthys</em> sobre él — un guiño a la fe y al pez que es nuestro trabajo. El círculo es también la "O" final del logotipo: símbolo y nombre son uno solo.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>06</span></div>
+</section>
+
+<!-- 07 LOGO VARIATIONS -->
+<section class="page">
+  <p class="kicker"><span class="n">05</span>Logo variations</p>
+  <h2 class="h-sec">Versions <span class="serif it te">for every surface</span></h2>
+  <p class="h-sub">Versiones · Para cada fondo</p>
+  <div class="rule"></div>
+  <div class="grid4">
+    <div class="panel mist"><img src="assets/logo-wordmark-color.png"><span class="tag">Full color / light bg</span></div>
+    <div class="panel dark"><img src="assets/logo-primary-white.png"><span class="tag">White / dark bg</span></div>
+    <div class="panel teal"><img src="assets/logo-wordmark-white.png"><span class="tag">White / teal</span></div>
+    <div class="panel mist"><img src="assets/mark-fish-color.png" style="width:22%"><span class="tag">Mark only</span></div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>07</span></div>
+</section>
+
+<!-- 08 CLEAR SPACE & SIZING -->
+<section class="page page--mist">
+  <p class="kicker"><span class="n">06</span>Clear space &amp; sizing</p>
+  <h2 class="h-sec">Room to <span class="serif it te">breathe</span></h2>
+  <p class="h-sub">Área de respeto &amp; tamaño mínimo</p>
+  <div class="rule"></div>
+  <div class="cs">
+    <div class="cs__box">
+      <div class="cs__inner">
+        <span class="cs__x" style="top:-9mm;left:50%;transform:translateX(-50%)">x</span>
+        <span class="cs__x" style="bottom:-9mm;left:50%;transform:translateX(-50%)">x</span>
+        <span class="cs__x" style="left:-6mm;top:50%;transform:translateY(-50%)">x</span>
+        <span class="cs__x" style="right:-6mm;top:50%;transform:translateY(-50%)">x</span>
+        <img src="assets/logo-wordmark-color.png">
+      </div>
+    </div>
+    <div>
+      <p class="body"><b style="font-weight:500">EN —</b> Always keep clear space around the logo equal to the height of the fish mark (<span class="serif it te">x</span>) on all sides. Never crowd it with text, imagery or edges.</p>
+      <p class="body" style="color:var(--grey);margin:4mm 0"><b style="font-weight:500;color:var(--ink)">ES —</b> Mantén siempre un área de respeto igual a la altura del símbolo (<span class="serif it te">x</span>) en todos los lados. Nunca lo satures con texto, imágenes o bordes.</p>
+      <div class="sizes">
+        <div><img src="assets/logo-wordmark-color.png" style="width:52mm"><span class="lbl">Print · min 24 mm wide</span></div>
+        <div><img src="assets/logo-wordmark-color.png" style="width:30mm"><span class="lbl">Digital · min 96 px</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>08</span></div>
+</section>
+
+<!-- 09 MISUSE -->
+<section class="page">
+  <p class="kicker"><span class="n">07</span>Logo misuse</p>
+  <h2 class="h-sec">Please <span class="serif it" style="color:#C0392B">don't</span></h2>
+  <p class="h-sub">Usos incorrectos · Lo que nunca se hace</p>
+  <div class="rule"></div>
+  <div class="donts">
+    <div class="dont"><div class="frame"><span class="no">✕</span><img src="assets/logo-wordmark-color.png" style="transform:rotate(-8deg)"></div><p>Don't rotate or skew. · No girar ni inclinar.</p></div>
+    <div class="dont"><div class="frame" style="background:#7a5">
+      <span class="no">✕</span><img src="assets/logo-wordmark-color.png"></div><p>Don't place on clashing colors. · No usar sobre colores que compitan.</p></div>
+    <div class="dont"><div class="frame"><span class="no">✕</span><img src="assets/logo-wordmark-color.png" style="width:60%;transform:scaleX(1.6)"></div><p>Don't stretch or distort. · No deformar.</p></div>
+    <div class="dont"><div class="frame" style="background:var(--abyss)"><span class="no">✕</span><img src="assets/logo-wordmark-color.png"></div><p>Don't use color logo on dark. · No usar el logo a color sobre oscuro (usa blanco).</p></div>
+    <div class="dont"><div class="frame"><span class="no">✕</span><img src="assets/mark-fish-gold.png" style="width:26%"><img src="assets/logo-wordmark-color.png" style="width:40%;position:absolute;opacity:0.4"></div><p>Don't recolor the parts. · No recolorear los elementos.</p></div>
+    <div class="dont"><div class="frame"><span class="no">✕</span><img src="assets/logo-wordmark-color.png" style="filter:blur(1.5px)"></div><p>Don't add effects or shadows. · No agregar efectos ni sombras.</p></div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>09</span></div>
+</section>
+
+<!-- 10 PRIMARY COLORS -->
+<section class="page">
+  <p class="kicker"><span class="n">08</span>Primary colors</p>
+  <h2 class="h-sec">Two colors, <span class="serif it te">one ocean</span></h2>
+  <p class="h-sub">Color primario · Teal &amp; oro</p>
+  <div class="rule"></div>
+  <div class="swatches">
+    <div class="sw">
+      <div class="chip" style="background:#16A4B0"><span>Pacific Teal</span></div>
+      <div class="meta"><span class="nm">Pacific Teal</span>
+        <span class="val"><b>HEX</b> #16A4B0<br><b>RGB</b> 22 · 164 · 176<br><b>CMYK</b> 88 · 7 · 0 · 31<br><b>PMS</b> 7710 C (approx.)</span></div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#BB922E"><span>Ichthys Gold</span></div>
+      <div class="meta"><span class="nm">Ichthys Gold</span>
+        <span class="val"><b>HEX</b> #BB922E<br><b>RGB</b> 187 · 146 · 46<br><b>CMYK</b> 0 · 22 · 75 · 27<br><b>PMS</b> 4515 C (approx.)</span></div>
+    </div>
+  </div>
+  <p class="body" style="margin-top:2mm">Teal leads; gold accents. As a rule of thumb, teal carries the brand and gold appears sparingly — the fish, a highlight, a call to action. <span style="color:var(--grey)">· El teal lidera; el oro acentúa con moderación.</span></p>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>10</span></div>
+</section>
+
+<!-- 11 EXTENDED PALETTE -->
+<section class="page">
+  <p class="kicker"><span class="n">09</span>Extended palette</p>
+  <h2 class="h-sec">Into the <span class="serif it te">deep</span></h2>
+  <p class="h-sub">Paleta extendida · Profundidades &amp; neutros</p>
+  <div class="rule"></div>
+  <div class="swatches" style="grid-template-columns:repeat(3,1fr);gap:7mm">
+    <div class="sw" style="flex-direction:column;gap:3mm"><div class="chip" style="background:#03100E;height:24mm;width:100%"><span style="color:#fff">Deep Abyss</span></div><div class="meta"><span class="val"><b>#03100E</b> · 3 16 14</span></div></div>
+    <div class="sw" style="flex-direction:column;gap:3mm"><div class="chip" style="background:#06201C;height:24mm;width:100%"><span style="color:#fff">Deep Ocean</span></div><div class="meta"><span class="val"><b>#06201C</b> · 6 32 28</span></div></div>
+    <div class="sw" style="flex-direction:column;gap:3mm"><div class="chip" style="background:#5FE0CE;height:24mm;width:100%"><span style="color:#04302b">Aqua Glow</span></div><div class="meta"><span class="val"><b>#5FE0CE</b> · 95 224 206</span></div></div>
+    <div class="sw" style="flex-direction:column;gap:3mm"><div class="chip" style="background:#D9B45C;height:24mm;width:100%"><span style="color:#3a2c07">Gold Light</span></div><div class="meta"><span class="val"><b>#D9B45C</b> · 217 180 92</span></div></div>
+    <div class="sw" style="flex-direction:column;gap:3mm"><div class="chip" style="background:#0F1A18;height:24mm;width:100%"><span style="color:#fff">Ink</span></div><div class="meta"><span class="val"><b>#0F1A18</b> · 15 26 24</span></div></div>
+    <div class="sw" style="flex-direction:column;gap:3mm"><div class="chip" style="background:#F2F6F5;height:24mm;width:100%;border:0.5pt solid var(--rule)"><span style="color:#6E7C79">Mist</span></div><div class="meta"><span class="val"><b>#F2F6F5</b> · 242 246 245</span></div></div>
+  </div>
+  <div class="pbar"><div style="background:#03100E"></div><div style="background:#06201C"></div><div style="background:#16A4B0"></div><div style="background:#5FE0CE"></div><div style="background:#BB922E"></div><div style="background:#D9B45C"></div><div style="background:#F2F6F5"></div></div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>11</span></div>
+</section>
+
+<!-- 12 TYPOGRAPHY FUTURA -->
+<section class="page">
+  <p class="kicker"><span class="n">10</span>Typography — Primary</p>
+  <h2 class="h-sec">Futura</h2>
+  <p class="h-sub">Tipografía primaria · Geométrica &amp; clara</p>
+  <div class="rule"></div>
+  <div class="type">
+    <div class="type__spec">
+      <div class="glyphs">Aa Gg Rr<br>1234567890</div>
+    </div>
+    <div>
+      <div class="name">Futura</div>
+      <div class="role">Headlines · labels · body · UI — the voice of the brand. <span style="color:var(--grey)">Títulos, etiquetas y texto.</span></div>
+      <div class="weights">
+        <span style="font-weight:300">Futura Light — long-form &amp; body</span>
+        <span style="font-weight:500">Futura Medium — headings &amp; emphasis</span>
+        <span style="font-weight:500;text-transform:uppercase;letter-spacing:0.24em;font-size:10pt">Futura Medium · Tracked labels</span>
+      </div>
+    </div>
+  </div>
+  <div class="scale" style="margin-top:6mm">
+    <div><span class="lbl">Display</span><span style="font-size:26pt">Everyday Fresh</span></div>
+    <div><span class="lbl">Heading</span><span style="font-size:15pt;font-weight:500">Five native species</span></div>
+    <div><span class="lbl">Body 10/16</span><span style="font-size:10pt">Raised in the open Pacific, without antibiotics, fully traceable.</span></div>
+    <div><span class="lbl">Label</span><span style="font-size:8pt;font-weight:500;letter-spacing:0.24em;text-transform:uppercase">Offshore Aquaculture · México</span></div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>12</span></div>
+</section>
+
+<!-- 13 TYPOGRAPHY CAUDEX -->
+<section class="page page--mist">
+  <p class="kicker"><span class="n">11</span>Typography — Accent</p>
+  <h2 class="h-sec serif it">Caudex</h2>
+  <p class="h-sub">Tipografía de acento · Emoción &amp; elegancia</p>
+  <div class="rule"></div>
+  <div class="type">
+    <div class="type__spec">
+      <div class="glyphs serif it">Aa Gg Rr<br><span style="font-style:italic">open ocean</span></div>
+    </div>
+    <div>
+      <div class="name serif it">Caudex Italic</div>
+      <div class="role">Used sparingly, for emphasis words and evocative phrases — never for long text. <span style="color:var(--grey)">Solo para palabras de énfasis.</span></div>
+      <p class="body" style="margin-top:5mm">Pair Futura with a single italic Caudex word to add warmth: “Raised in the <span class="serif it te">open ocean</span>”, “The sea, <span class="serif it te">left better</span>”. One accent per headline — no more.</p>
+      <p class="body" style="color:var(--grey);margin-top:3mm">Combina Futura con una sola palabra en Caudex itálica para dar calidez. Un acento por título, no más.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>13</span></div>
+</section>
+
+<!-- 14 PHOTOGRAPHY -->
+<section class="page page--dark">
+  <p class="kicker"><span class="n">12</span>Photography</p>
+  <h2 class="h-sec" style="color:#fff">Deep, clean, <span class="serif it aq">alive</span></h2>
+  <p class="h-sub">Fotografía · Dirección de arte</p>
+  <div class="rule"></div>
+  <div class="bi">
+    <div class="lang-col"><span class="lang">Direction · EN</span>
+      <p style="color:#EAF3F0">Imagery lives in deep blues and teals, with real light in real water. Favor the authentic over the staged: offshore cages, fish in motion, the product on ice. Every image is graded dark and cool, then lifted by a single shaft of light or the teal of the sea.</p>
+      <p style="color:#EAF3F0"><b class="aq">Do —</b> open ocean, submerged cages, schooling fish, cold-chain product, hands at work.<br><b style="color:#C98">Avoid —</b> bright touristy markets, warm sunsets, mixed proteins, staged studio shots.</p>
+    </div>
+    <div class="lang-col es"><span class="lang">Dirección · ES</span>
+      <p style="color:#EAF3F0">La imagen vive en azules y teales profundos, con luz real en agua real. Prioriza lo auténtico sobre lo montado: jaulas mar adentro, peces en movimiento, el producto en hielo. Cada imagen se gradúa oscura y fría, realzada por un haz de luz o el teal del mar.</p>
+      <p style="color:#EAF3F0"><b class="aq">Sí —</b> océano abierto, jaulas sumergibles, cardúmenes, producto en frío, manos trabajando.<br><b style="color:#C98">Evitar —</b> mercados turísticos, atardeceres cálidos, proteínas mezcladas, estudio montado.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>14</span></div>
+</section>
+
+<!-- 15 VOICE & TONE -->
+<section class="page">
+  <p class="kicker"><span class="n">13</span>Voice &amp; tone</p>
+  <h2 class="h-sec">How we <span class="serif it te">speak</span></h2>
+  <p class="h-sub">Voz &amp; tono · Claro, sereno, seguro</p>
+  <div class="rule"></div>
+  <div class="voice">
+    <div>
+      <div class="pill"><h4>Clear, not clever <span style="font-size:8pt;color:var(--grey)">· Claro</span></h4><p>We say what we mean, plainly. Precision reads as confidence.</p></div>
+      <div class="pill"><h4>Calm, not loud <span style="font-size:8pt;color:var(--grey)">· Sereno</span></h4><p>The ocean doesn't shout. Short sentences, generous space.</p></div>
+      <div class="pill"><h4>Proud, not boastful <span style="font-size:8pt;color:var(--grey)">· Con orgullo</span></h4><p>Let the facts and the fish speak. Understatement over hype.</p></div>
+    </div>
+    <div>
+      <p class="body">Words we like <span style="color:var(--grey)">· Palabras que usamos</span></p>
+      <div class="words">
+        <span class="word">native</span><span class="word">offshore</span><span class="word">responsible</span>
+        <span class="word">traceable</span><span class="word">fresh</span><span class="word">Pacific</span><span class="word">exceptional</span>
+      </div>
+      <p class="body" style="margin-top:8mm;color:var(--grey)">Words we avoid: “disruptive”, “world-class”, empty superlatives. <br>Palabras que evitamos: superlativos vacíos.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SigriCo — Brand Identity Book</span><span>15</span></div>
+</section>
+
+<!-- 16 CONTACT / CLOSING -->
+<section class="page page--dark closing">
+  <p class="kicker" style="position:absolute;top:20mm;left:22mm"><span class="n">14</span>Contact</p>
+  <img src="assets/logo-primary-white.png" alt="SigriCo">
+  <p class="tag">Everyday Fresh</p>
+  <p class="addr">SIGRICO, S.A.P.I. de C.V.<br>Juan Salvador Agraz #40 · Piso 5 · Ciudad de México<br>rzambrano@isuriacorp.com</p>
+  <div class="foot"><span>SigriCo — Brand Identity Book · v1.0 · 2026</span><span>16</span></div>
+</section>
+
+</body>
+</html>

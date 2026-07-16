@@ -10,3 +10,11 @@ node_modules/
 # Backups / temp
 *.orig
 *.tmp
+
+# ---- Confidential deliverables & licensed fonts — NEVER push to the public repo ----
+# Proyecto Thalassa study (confidential) + brand book PDFs
+docs/
+# licensed Futura / Caudex font files
+brand/fonts/
+# base64-embedded licensed fonts
+brand/fonts.css
