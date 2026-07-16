@@ -61,7 +61,7 @@ img { max-width: 100%; display: block; }
 /* ---------- shared type ---------- */
 .eyebrow {
   font-family: var(--mono);
-  font-size: 0.72rem; /* unified label size */
+  font-size: 1.08rem; /* label size +50% (boss) */
   font-weight: 500;
   letter-spacing: 0.34em;
   text-transform: uppercase;
@@ -201,7 +201,7 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 .hero__sub {
   margin-top: 2.2rem;
   font-family: var(--mono);
-  font-size: 0.72rem; /* unified label size */
+  font-size: 1.08rem; /* label size +50% (boss) */
   letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--muted);
 }
@@ -223,7 +223,7 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
   display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
 }
 .hero__cue span {
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.3em;
+  font-family: var(--mono); font-size: 0.87rem; letter-spacing: 0.3em;
   text-transform: uppercase; color: var(--faint);
 }
 .hero__cue i {
@@ -414,7 +414,7 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 }
 .stat__num small { font-size: 0.42em; color: var(--aqua); font-family: var(--mono); vertical-align: super; }
 .stat__label {
-  margin-top: 1rem; font-family: var(--mono); font-size: 0.66rem;
+  margin-top: 1rem; font-family: var(--mono); font-size: 1rem;
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
 }
 
