@@ -37,7 +37,7 @@ assets/         Source logo art (.ai / .pdf)
   - optional 2nd recipient(s): set the `_cc` hidden field (comma-separate for more)
   - submit once to receive FormSubmit's one-time activation email, then click it.
 - **Photography** — `images/ph-*.jpg` are atmospheric ocean stand-ins pulled from the
-  current site. Swap in real farm / pens / Seriola / harvest / product photos when available.
+  current site. Swap in real operation / pens / Seriola / harvest / product photos when available.
 - **Spanish (ES) version** — on hold until the English version is approved.
 
 ## Deploy (GitHub Pages)
