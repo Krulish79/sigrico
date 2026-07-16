@@ -309,6 +309,42 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 .gcell.photo:hover { filter: brightness(1.12) saturate(1.05); }
 
 /* ============================================================
+   INTERLUDE — full-bleed cinematic photo band (breaks up text)
+   ============================================================ */
+.interlude {
+  position: relative; width: 100%;
+  height: clamp(340px, 52vh, 600px);
+  overflow: hidden;
+}
+.interlude__img {
+  position: absolute; inset: -5%;
+  background: var(--img) center / cover no-repeat;
+  animation: kenburns 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.interlude::after {         /* depth overlay — darker at the seams so it melts into the dark sections */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(3,16,14,0.85) 0%, rgba(3,16,14,0.28) 26%,
+                    rgba(3,16,14,0.34) 68%, rgba(3,16,14,0.92) 100%),
+    linear-gradient(90deg, rgba(3,16,14,0.55), transparent 42%);
+}
+.interlude__cap {
+  position: absolute; left: 0; bottom: 0; z-index: 2;
+  padding: clamp(1.6rem, 5vw, 4rem);
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+  line-height: 1.15; color: var(--ink); max-width: 22ch;
+}
+@keyframes kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.09) translate(1.2%, -1.4%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interlude__img { animation: none; }
+}
+
+/* ============================================================
    SPECIES ROSTER (5-species portfolio)
    ============================================================ */
 .species__head { text-align: center; margin-bottom: clamp(3rem, 7vh, 5rem); }
