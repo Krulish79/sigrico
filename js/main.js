@@ -124,17 +124,17 @@
   }
 
   function seed() {
-    // fine drifting motes (marine snow)
-    const count = Math.min(Math.round((W * H) / 20000), 120);
+    // rising bubbles
+    const count = Math.min(Math.round((W * H) / 34000), 74);
     motes = Array.from({ length: count }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: Math.random() * 2.6 + 0.8,           // a bit bigger
-      vy: -(Math.random() * 0.3 + 0.05),
-      vx: (Math.random() - 0.5) * 0.18,
-      a: Math.random() * 0.55 + 0.26,         // more pronounced
-      tw: Math.random() * Math.PI * 2,
-      tws: Math.random() * 0.02 + 0.008,
+      r: Math.random() * 4.5 + 1.6,           // bubbles, varied sizes
+      vy: -(Math.random() * 0.34 + 0.10),      // rise steadily
+      wob: Math.random() * Math.PI * 2,        // gentle side-to-side wobble
+      wobS: Math.random() * 0.02 + 0.01,
+      sway: Math.random() * 0.5 + 0.3,
+      a: Math.random() * 0.35 + 0.22,          // translucent, no twinkle
       depth: Math.random() * 0.7 + 0.3,           // parallax depth
       c: COLORS[Math.floor(Math.random() * COLORS.length)],
     }));
@@ -208,22 +208,31 @@
       ctx.beginPath(); ctx.arc(ox, oy, o.r, 0, Math.PI * 2); ctx.fill();
     }
 
-    // motes
+    // rising bubbles (translucent ring + soft rim + specular highlight)
+    ctx.globalCompositeOperation = "screen";   // luminous but soft, not star-hot
+    ctx.shadowBlur = 0;
     for (const p of motes) {
-      p.y += p.vy; p.x += p.vx; p.tw += p.tws;
-      if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
-      if (p.x < -10) p.x = W + 10;
-      if (p.x > W + 10) p.x = -10;
-      const alpha = p.a * (0.5 + 0.5 * Math.sin(p.tw));
-      const px = p.x + par.x * p.depth, py = p.y + par.y * p.depth;
+      p.y += p.vy;
+      p.wob += p.wobS;
+      if (p.y < -14) { p.y = H + 14; p.x = Math.random() * W; }
+      const px = p.x + Math.sin(p.wob) * p.sway + par.x * p.depth;
+      const py = p.y + par.y * p.depth;
+
+      // faint translucent body
       ctx.beginPath();
       ctx.arc(px, py, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.c},${alpha})`;
-      ctx.shadowBlur = 12;
-      ctx.shadowColor = `rgba(${p.c},0.9)`;
+      ctx.fillStyle = `rgba(${p.c},${p.a * 0.14})`;
+      ctx.fill();
+      // rim
+      ctx.lineWidth = Math.max(0.6, p.r * 0.16);
+      ctx.strokeStyle = `rgba(${p.c},${p.a})`;
+      ctx.stroke();
+      // specular highlight (upper-left)
+      ctx.beginPath();
+      ctx.arc(px - p.r * 0.34, py - p.r * 0.34, Math.max(0.5, p.r * 0.2), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(237,242,248,${p.a * 0.85})`;
       ctx.fill();
     }
-    ctx.shadowBlur = 0;
     ctx.globalCompositeOperation = "source-over";
   }
 
