@@ -208,8 +208,8 @@
       ctx.beginPath(); ctx.arc(ox, oy, o.r, 0, Math.PI * 2); ctx.fill();
     }
 
-    // rising bubbles (translucent ring + soft rim + specular highlight)
-    ctx.globalCompositeOperation = "screen";   // luminous but soft, not star-hot
+    // rising bubbles — soft, faint, out-of-focus (no hard outline / no bright dot)
+    ctx.globalCompositeOperation = "screen";
     ctx.shadowBlur = 0;
     for (const p of motes) {
       p.y += p.vy;
@@ -218,19 +218,16 @@
       const px = p.x + Math.sin(p.wob) * p.sway + par.x * p.depth;
       const py = p.y + par.y * p.depth;
 
-      // faint translucent body
+      // soft radial body: transparent core, gentle diffuse rim, feathered edge
+      const g = ctx.createRadialGradient(px, py, 0, px, py, p.r);
+      g.addColorStop(0,    `rgba(${p.c},0)`);
+      g.addColorStop(0.55, `rgba(${p.c},${p.a * 0.05})`);
+      g.addColorStop(0.82, `rgba(${p.c},${p.a * 0.30})`);   // faint blurred rim
+      g.addColorStop(0.94, `rgba(${p.c},${p.a * 0.14})`);
+      g.addColorStop(1,    `rgba(${p.c},0)`);
+      ctx.fillStyle = g;
       ctx.beginPath();
       ctx.arc(px, py, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.c},${p.a * 0.14})`;
-      ctx.fill();
-      // rim
-      ctx.lineWidth = Math.max(0.6, p.r * 0.16);
-      ctx.strokeStyle = `rgba(${p.c},${p.a})`;
-      ctx.stroke();
-      // specular highlight (upper-left)
-      ctx.beginPath();
-      ctx.arc(px - p.r * 0.34, py - p.r * 0.34, Math.max(0.5, p.r * 0.2), 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(237,242,248,${p.a * 0.85})`;
       ctx.fill();
     }
     ctx.globalCompositeOperation = "source-over";
