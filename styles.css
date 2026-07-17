@@ -112,13 +112,13 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 .nav__links { display: flex; gap: 2.4rem; align-items: center; }
 .nav__links a {
   font-family: var(--mono);
-  font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  font-size: 0.81rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--muted); transition: color 0.35s var(--ease);
 }
 .nav__links a:hover { color: var(--gold-lit); }
 .nav__cta {
   font-family: var(--mono);
-  font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  font-size: 0.81rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--ink) !important;
   border: 1px solid var(--line-2); border-radius: 100px;
   padding: 0.6rem 1.1rem;
@@ -608,6 +608,9 @@ button.btn-gold {                    /* re-assert token styling on the <button> 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 1040px) {
+  .nav__links { display: none; }   /* bigger nav type needs room; collapse earlier */
+}
 @media (max-width: 900px) {
   .split { grid-template-columns: 1fr; }
   .split.rev .split__media { order: 0; }
