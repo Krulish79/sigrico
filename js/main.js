@@ -131,7 +131,7 @@
 
   function seed() {
     // rising bubbles
-    const count = Math.min(Math.round((W * H) / 34000), 74);
+    const count = Math.min(Math.round((W * H) / 21000), 120);
     motes = Array.from({ length: count }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
