@@ -150,8 +150,8 @@
       w: 0.014 + Math.random() * 0.022,        // half-width — tighter, crisper shafts
       len: H * (1.15 + Math.random() * 0.4),   // reaches well down into the deep
       ph: Math.random() * Math.PI * 2,
-      sp: 0.004 + Math.random() * 0.004,       // slow sway speed (per frame)
-      amp: 0.03 + Math.random() * 0.05,        // sway amplitude (rad)
+      sp: 0.005 + Math.random() * 0.004,       // slow sway speed (per frame)
+      amp: 0.09 + Math.random() * 0.08,        // sway amplitude (rad) — visible drift
       a: 0.20 + Math.random() * 0.15,          // base brightness (more pronounced)
       c: i % 4 === 1 ? "22,164,176" : "42,185,198",   // all-blue shafts (two blue tones)
     }));
@@ -180,7 +180,8 @@
     // god-ray shafts — soft volumetric light drifting down through the water
     ctx.save();
     ctx.filter = "blur(11px)";
-    const ax = W * 0.5 + par.x * 0.4;  // apex, above the top edge, drifts with pointer
+    // apex slowly sweeps side to side (light source shifting through the surface)
+    const ax = W * 0.5 + Math.sin(t * 0.0016) * W * 0.06 + par.x * 0.4;
     const ay = -H * 0.12;
     for (const b of beams) {
       const ang = b.base + Math.sin(t * b.sp + b.ph) * b.amp;
@@ -214,7 +215,7 @@
       ctx.beginPath(); ctx.arc(ox, oy, o.r, 0, Math.PI * 2); ctx.fill();
     }
 
-    // rising bubbles — soft, faint, out-of-focus (no hard outline / no bright dot)
+    // rising bubbles — soft glassy spheres catching ambient light from above
     ctx.globalCompositeOperation = "screen";
     ctx.shadowBlur = 0;
     for (const p of motes) {
@@ -223,13 +224,16 @@
       if (p.y < -14) { p.y = H + 14; p.x = Math.random() * W; }
       const px = p.x + Math.sin(p.wob) * p.sway + par.x * p.depth;
       const py = p.y + par.y * p.depth;
+      const a = p.a * 0.8;
 
-      // soft radial body: transparent core, gentle diffuse rim, feathered edge
-      const g = ctx.createRadialGradient(px, py, 0, px, py, p.r);
-      g.addColorStop(0,    `rgba(${p.c},0)`);
-      g.addColorStop(0.55, `rgba(${p.c},${p.a * 0.05})`);
-      g.addColorStop(0.82, `rgba(${p.c},${p.a * 0.30})`);   // faint blurred rim
-      g.addColorStop(0.94, `rgba(${p.c},${p.a * 0.14})`);
+      // sheen offset toward upper-left (light comes from the surface)
+      const g = ctx.createRadialGradient(
+        px - p.r * 0.32, py - p.r * 0.4, p.r * 0.05,
+        px, py, p.r * 1.06
+      );
+      g.addColorStop(0,    `rgba(${p.c},${a * 0.34})`);   // soft glassy sheen
+      g.addColorStop(0.45, `rgba(${p.c},${a * 0.07})`);
+      g.addColorStop(0.9,  `rgba(${p.c},${a * 0.16})`);   // whisper-thin soft rim
       g.addColorStop(1,    `rgba(${p.c},0)`);
       ctx.fillStyle = g;
       ctx.beginPath();
