@@ -17,6 +17,32 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Descend cue: slow eased "submerge" scroll ---------- */
+  const cue = document.querySelector(".hero__cue");
+  if (cue) {
+    cue.addEventListener("click", (e) => {
+      const target = document.querySelector(cue.getAttribute("href"));
+      if (!target) return;                       // fall back to native jump
+      e.preventDefault();
+      const root = document.documentElement;
+      const prevBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";         // override CSS smooth during our animation
+      const startY = window.scrollY;
+      const destY = startY + target.getBoundingClientRect().top;
+      const dist = destY - startY;
+      const dur = 1700;                           // slow submerge
+      const t0 = performance.now();
+      const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+      function step(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        window.scrollTo(0, startY + dist * easeInOut(p));
+        if (p < 1) requestAnimationFrame(step);
+        else root.style.scrollBehavior = prevBehavior;   // restore
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
   /* ---------- 2. Scroll reveal ---------- */
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !reduceMotion) {

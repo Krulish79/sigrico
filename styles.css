@@ -231,16 +231,24 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
   position: absolute; left: 50%; bottom: 2.2rem; z-index: 3;
   transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+  text-decoration: none; cursor: pointer;
+  padding: 0.4rem 1rem 0.2rem;                 /* comfortable click target */
+  transition: transform 0.5s var(--ease);
 }
 .hero__cue span {
   font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.3em;
   text-transform: uppercase; color: var(--faint);
+  transition: color 0.4s var(--ease), letter-spacing 0.4s var(--ease);
 }
 .hero__cue i {
   width: 1px; height: 56px; display: block;
   background: linear-gradient(to bottom, var(--gold-lit), transparent);
   animation: cueflow 2.4s ease-in-out infinite;
+  transition: height 0.5s var(--ease);
 }
+.hero__cue:hover { transform: translateX(-50%) translateY(4px); }
+.hero__cue:hover span { color: var(--gold-lit); letter-spacing: 0.34em; }
+.hero__cue:hover i { height: 68px; }
 @keyframes cueflow {
   0%,100% { opacity: 0.35; transform: scaleY(0.7); transform-origin: top; }
   50%     { opacity: 1;    transform: scaleY(1);   transform-origin: top; }
