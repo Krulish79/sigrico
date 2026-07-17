@@ -36,10 +36,17 @@
     revealEls.forEach((el) => el.classList.add("in"));
   }
 
-  /* ---------- Interlude videos: play only while on-screen ---------- */
+  /* ---------- Interlude videos ----------
+     Gentle muted ambient loops (the brand wants them moving), so they autoplay
+     for everyone — the `autoplay` attribute handles it natively, and we also
+     nudge play() as a belt-and-suspenders. The observer only pauses them
+     off-screen to save data/battery. */
   const ilVideos = document.querySelectorAll(".interlude__video");
-  ilVideos.forEach((v) => { v.muted = true; });   // required for autoplay
-  if (ilVideos.length && !reduceMotion && "IntersectionObserver" in window) {
+  ilVideos.forEach((v) => {
+    v.muted = true;                       // required for autoplay
+    v.play().catch(() => {});             // nudge in case the attribute is ignored
+  });
+  if (ilVideos.length && "IntersectionObserver" in window) {
     const vio = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -47,11 +54,10 @@
           else e.target.pause();
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
     ilVideos.forEach((v) => vio.observe(v));
   }
-  // reduced motion → leave paused; the poster frame shows.
 
   /* ---------- Contact form: submit inline, never leave the page ---------- */
   const form = document.getElementById("contactForm");
