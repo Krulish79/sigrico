@@ -608,11 +608,11 @@ button.btn-gold {                    /* re-assert token styling on the <button> 
 .reveal.d4 { transition-delay: 0.32s; }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Reveal content immediately (skip the scroll-in), but keep the gentle
+     ambient ocean motion — light-ray sway, glow and the descend cue. */
   .reveal { opacity: 1; transform: none; transition: none; }
-  .rays, .rays::before, .hero__cue i, .glow,
   .hero__eyebrow, .hero h1 .l1, .hero h1 .l2, .hero__sub, .hero__cue {
-    animation: none !important;
-    opacity: 1; transform: none; filter: none;
+    opacity: 1;
   }
   html { scroll-behavior: auto; }
 }

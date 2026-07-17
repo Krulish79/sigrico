@@ -243,34 +243,30 @@
   function init() { size(); seed(); }
   init();
 
-  // Reduced motion: render ONE static frame so the light shafts still show,
-  // just without the drift and shimmer. Full animation otherwise.
-  if (reduceMotion) {
-    drawScene();
-  } else {
-    frame();
+  // Gentle ambient motion for everyone — slow drifting light shafts + rising
+  // bubbles. (Kept intentionally slow/soft so it stays comfortable.)
+  frame();
 
-    // pointer parallax (eased in drawScene)
-    window.addEventListener("pointermove", (e) => {
-      mouse.x = e.clientX / window.innerWidth;
-      mouse.y = e.clientY / window.innerHeight;
-    }, { passive: true });
+  // pointer parallax (eased in drawScene)
+  window.addEventListener("pointermove", (e) => {
+    mouse.x = e.clientX / window.innerWidth;
+    mouse.y = e.clientY / window.innerHeight;
+  }, { passive: true });
 
-    // pause the loop when the hero scrolls out of view (save cycles)
-    const hero = document.getElementById("top");
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) { if (!raf) frame(); }
-          else { cancelAnimationFrame(raf); raf = null; }
-        });
-      }, { threshold: 0 }).observe(hero);
-    }
+  // pause the loop when the hero scrolls out of view (save cycles)
+  const hero = document.getElementById("top");
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { if (!raf) frame(); }
+        else { cancelAnimationFrame(raf); raf = null; }
+      });
+    }, { threshold: 0 }).observe(hero);
   }
 
   let rt;
   window.addEventListener("resize", () => {
     clearTimeout(rt);
-    rt = setTimeout(() => { init(); if (reduceMotion) drawScene(); }, 150);
+    rt = setTimeout(init, 150);   // running loop picks up the new size
   });
 })();
