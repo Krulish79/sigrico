@@ -91,6 +91,19 @@
     const statusEl = document.getElementById("cf-status");
     const doneEl = document.getElementById("contactDone");
     const btn = document.getElementById("cf-submit");
+    // Language-aware status strings (EN default · ES on the /es page)
+    const ES = document.documentElement.lang === "es";
+    const T = ES
+      ? {
+          sending: "Enviando…",
+          fail: "Algo salió mal — inténtalo de nuevo en un momento.",
+          net: "Error de red — revisa tu conexión e inténtalo de nuevo.",
+        }
+      : {
+          sending: "Sending…",
+          fail: "Something went wrong — please try again in a moment.",
+          net: "Network error — please check your connection and try again.",
+        };
     const setStatus = (msg, kind) => {
       statusEl.textContent = msg;
       statusEl.className = "cform__status" + (kind ? " " + kind : "");
@@ -107,7 +120,7 @@
       }
 
       btn.disabled = true;
-      setStatus("Sending…", "");
+      setStatus(T.sending, "");
       // FormSubmit's JSON endpoint keeps it inline (no redirect).
       const endpoint = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
       try {
@@ -122,11 +135,11 @@
           doneEl.classList.add("in");
           doneEl.scrollIntoView({ behavior: "smooth", block: "center" });
         } else {
-          setStatus("Something went wrong — please try again in a moment.", "err");
+          setStatus(T.fail, "err");
           btn.disabled = false;
         }
       } catch (err) {
-        setStatus("Network error — please check your connection and try again.", "err");
+        setStatus(T.net, "err");
         btn.disabled = false;
       }
     });

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SigriCo — Siempre Fresco · Rewilding Protein Systems</title>
+  <meta name="description" content="SigriCo cría Seriola premium en el Pacífico abierto — proteína sostenible, del mar a la mesa, desde México. Siempre Fresco." />
+  <meta name="theme-color" content="#081428" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Type to match sigrico.com: Futura LT → Jost (geometric sans) · Caudex (serif accent) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <a class="nav__logo" href="#top" aria-label="Inicio SigriCo">
+      <img src="images/sigrico-logo.png" alt="SigriCo" />
+    </a>
+    <div class="nav__links">
+      <a href="#species">Especies</a>
+      <a href="#method">Método</a>
+      <a href="#technology">Tecnología</a>
+      <a href="#sustainability">Sostenibilidad</a>
+      <a href="#reach">Alcance</a>
+    </div>
+    <div class="nav__end">
+      <a class="nav__lang" href="index.html" aria-label="View the site in English">EN</a>
+      <a class="nav__cta" href="#contact">Contáctanos →</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <canvas id="particles"></canvas>
+    <div class="rays"></div>
+    <div class="hero__inner">
+      <p class="eyebrow hero__eyebrow">Rewilding Protein Systems · Baja California, México</p>
+      <h1>
+        <span class="l1">Criados en el</span>
+        <span class="l2 serif-it glow">mar abierto</span>
+      </h1>
+      <p class="hero__sub">Siempre Fresco — <span class="fish">Hiramasa</span>, <span class="fish">Medregal</span>, <span class="fish">Huachinango</span>, <span class="fish">Robalo y Totoaba</span> sostenibles del Pacífico mexicano</p>
+    </div>
+    <a class="hero__cue" href="#philosophy" aria-label="Descender a la siguiente sección">
+      <span>Desciende</span>
+      <i></i>
+    </a>
+  </header>
+
+  <main>
+    <!-- ===================== STATEMENT ===================== -->
+    <section class="section statement" id="philosophy">
+      <p class="eyebrow reveal"><span class="idx">01</span>La Filosofía</p>
+      <h2 class="big reveal d1">
+        La acuicultura es la proteína animal con la <span class="serif-it glow">huella más ligera</span> de nuestro planeta.
+      </h2>
+      <p class="lede reveal d2">
+        SigriCo es una empresa mexicana creada para posicionar a México como el referente mundial en
+        plataformas de proteína para la resilvestración del océano y la generación de hábitat marino.
+      </p>
+    </section>
+
+    <!-- ===================== INTERLUDE ===================== -->
+    <section class="interlude" aria-label="Peces en el Pacífico abierto">
+      <video class="interlude__video" autoplay muted loop playsinline preload="metadata" poster="images/interlude-deep.jpg">
+        <source src="videos/interlude-deep.mp4" type="video/mp4" />
+      </video>
+      <p class="interlude__cap">El Pacífico abierto, <span class="serif-it glow">vivo</span></p>
+    </section>
+
+    <!-- ===================== SPECIES / PORTFOLIO ===================== -->
+    <section class="section" id="species">
+      <div class="species__head">
+        <p class="eyebrow reveal"><span class="idx">02</span>El Portafolio</p>
+        <h2 class="reveal d1">Cinco especies nativas del<br /><span class="serif-it glow">Pacífico mexicano</span></h2>
+        <p class="species__intro reveal d2">
+          Un portafolio pensado para el equilibrio — desde el pescado para sushi más apreciado del mundo
+          hasta los pilares de la cocina mexicana. Cada especie es nativa de estas aguas frente a
+          Baja California Sur, criada donde ha prosperado durante milenios.
+        </p>
+      </div>
+
+      <ol class="roster">
+        <li class="roster__row reveal">
+          <span class="roster__idx">01</span>
+          <div class="roster__name">
+            <h3>Hiramasa <span class="roster__alt">· Jurel de Castilla</span></h3>
+            <p class="roster__sci serif-it">Seriola lalandi</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-hiramasa.jpg')"></div>
+          <p class="roster__desc">Uno de los cinco pescados para sushi más apreciados del mundo — firme, limpio, rico en omega-3.</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">02</span>
+          <div class="roster__name">
+            <h3>Medregal <span class="roster__alt">· Almaco Jack</span></h3>
+            <p class="roster__sci serif-it">Seriola rivoliana</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-almaco.jpg')"></div>
+          <p class="roster__desc">Mantecoso y de sabor intenso — la única fuente de su tipo a gran escala en el continente americano.</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">03</span>
+          <div class="roster__name">
+            <h3>Huachinango <span class="roster__alt">· Pargo del Pacífico</span></h3>
+            <p class="roster__sci serif-it">Lutjanus peru</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-snapper.jpg')"></div>
+          <p class="roster__desc">El alma de la gastronomía mexicana — por fin en abasto constante y uniforme.</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">04</span>
+          <div class="roster__name">
+            <h3>Robalo <span class="roster__alt">· Snook del Pacífico</span></h3>
+            <p class="roster__sci serif-it">Centropomus viridis</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-snook.jpg')"></div>
+          <p class="roster__desc">El pescado blanco más versátil del portafolio — limpio, firme, siempre a la medida del chef.</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">05</span>
+          <div class="roster__name">
+            <h3>Totoaba</h3>
+            <p class="roster__sci serif-it">Totoaba macdonaldi</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-totoaba.jpg')"></div>
+          <p class="roster__desc">Endémica del Golfo de California, criada a partir de linaje legal certificado — aligerando la presión sobre una especie silvestre protegida.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== STATS ===================== -->
+    <section class="section" style="padding-top:0;">
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat__num">1<small>º</small></div>
+          <div class="stat__label">En el<br />Pacífico mexicano</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num">90<small>min</small></div>
+          <div class="stat__label">Del mar<br />al hielo</div>
+        </div>
+        <div class="stat reveal d1">
+          <div class="stat__num">0<small>abx</small></div>
+          <div class="stat__label">Antibióticos</div>
+        </div>
+        <div class="stat reveal d2">
+          <div class="stat__num">100<small>%</small></div>
+          <div class="stat__label">Trazable<br />de la jaula al plato</div>
+        </div>
+        <div class="stat reveal d3">
+          <div class="stat__num">330<small>pies</small></div>
+          <div class="stat__label">Aguas<br />profundas y abiertas</div>
+        </div>
+        <div class="stat reveal d4">
+          <div class="stat__num">4<small>×</small></div>
+          <div class="stat__label">Eficiencia alimentaria<br />vs. tierra</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== METHOD ===================== -->
+    <section class="section" id="method">
+      <div style="text-align:center;">
+        <p class="eyebrow reveal"><span class="idx">03</span>El Método</p>
+        <h2 class="reveal d1" style="font-size:clamp(2rem,6vw,4.6rem);margin-top:1.4rem;">
+          Criado en el mar,<br /><span class="serif-it glow">siempre mar adentro</span>
+        </h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__n">/ 01</div>
+          <h3>Aguas profundas y abiertas</h3>
+          <p>Las jaulas se ubican a 7 millas de la costa en corrientes de alta energía, a 330 pies de profundidad — el océano hace la limpieza, de forma natural.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step__n">/ 02</div>
+          <h3>Baja densidad</h3>
+          <p>Espacio generoso por pez, que les permite nadar con más fuerza en aguas más limpias.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step__n">/ 03</div>
+          <h3>Condiciones endémicas</h3>
+          <p>Criamos cada especie desde donde es nativa, ayudando a mejorar su sostenibilidad actual.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step__n">/ 04</div>
+          <h3>Cadena de frío desde el primer día</h3>
+          <p>Del mar al hielo a la exportación en horas — la frescura del océano, intacta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TECHNOLOGY ===================== -->
+    <section class="section" id="technology">
+      <div style="text-align:center;">
+        <p class="eyebrow reveal"><span class="idx">04</span>Tecnología</p>
+        <h2 class="reveal d1" style="font-size:clamp(2rem,6vw,4.6rem);margin-top:1.4rem;">
+          Diseñado para el <span class="serif-it glow">mar abierto</span>
+        </h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__n">/ 01</div>
+          <h3>Jaulas sumergibles</h3>
+          <p>Cuando pasa una tormenta o marea roja, las jaulas descienden de 30 a 65 pies bajo la superficie y la sortean — resguardando un ciclo entero.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step__n">/ 02</div>
+          <h3>Malla de cobre marino</h3>
+          <p>La red de aleación de cobre resiste la bioincrustación por sí sola y permanece químicamente inerte — así el agua se mantiene pura, y su forma rígida mantiene a salvo a tortugas, delfines y tiburones ballena.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step__n">/ 03</div>
+          <h3>Alimentación de precisión con IA</h3>
+          <p>Las cámaras de biomasa leen a los peces en tiempo real y detienen la alimentación en cuanto un pellet pasa de largo — menos desperdicio, agua más limpia.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step__n">/ 04</div>
+          <h3>Un gemelo digital vivo</h3>
+          <p>Cada lectura de corriente, temperatura y carga alimenta un modelo en tiempo real de toda la operación — impulsado mar adentro por sol y oleaje, enlazado por satélite.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INTERLUDE ===================== -->
+    <section class="interlude" aria-label="Un cardumen moviéndose en conjunto">
+      <video class="interlude__video" autoplay muted loop playsinline preload="metadata" poster="images/interlude-swarm.jpg">
+        <source src="videos/interlude-swarm.mp4" type="video/mp4" />
+      </video>
+      <p class="interlude__cap">Miles, moviéndose como <span class="serif-it glow">uno</span></p>
+    </section>
+
+    <!-- ===================== SUSTAINABILITY ===================== -->
+    <section class="section split rev" id="sustainability">
+      <div class="split__media reveal">
+        <div class="media wide photo" style="--img:url('images/ocean-aerial.jpg')">
+          <span class="media__label">Acuicultura de mar abierto</span>
+        </div>
+      </div>
+      <div class="split__body">
+        <p class="eyebrow reveal"><span class="idx">05</span>Responsabilidad</p>
+        <h2 class="reveal d1">El mar,<br /><span class="serif-it glow">mejor que antes</span></h2>
+        <p class="reveal d2">
+          La acuicultura es la forma de producir proteína animal con la huella más ligera — una fracción
+          de la tierra, el agua dulce y el carbono de cualquier alimento criado en tierra.
+        </p>
+        <p class="reveal d2">
+          Al criar Totoaba endémica a partir de linaje legal certificado, ayudamos a aligerar la presión
+          sobre una especie silvestre protegida — y avanzamos hacia la certificación ASC completa a medida que crecemos.
+        </p>
+        <p class="reveal d2">
+          Nuestro compromiso es simple: producir más alimento del océano y devolverle aún más.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== THE DIFFERENCE ===================== -->
+    <section class="section" id="difference">
+      <div class="diff__head">
+        <p class="eyebrow reveal"><span class="idx">06</span>Lo que nos distingue</p>
+        <h2 class="reveal d1">La diferencia <span class="serif-it glow">SigriCo</span></h2>
+        <p class="diff__intro reveal d2">
+          Acuicultura de mar abierto — una nueva forma de llevar el océano a la mesa, diseñada
+          desde el agua hacia arriba.
+        </p>
+      </div>
+
+      <div class="diff__grid">
+        <div class="diff__item reveal">
+          <h3>Primera en su tipo</h3>
+          <p>La única operación comercial de jaulas sumergibles de su tipo en la costa del Pacífico de América Latina.</p>
+        </div>
+        <div class="diff__item reveal d1">
+          <h3>Un portafolio único</h3>
+          <p>Cinco especies nativas del Pacífico — dos de ellas criadas a escala de forma única.</p>
+        </div>
+        <div class="diff__item reveal d2">
+          <h3>Crianza limpia</h3>
+          <p>Cero antibióticos y trazabilidad total, de la jaula al plato.</p>
+        </div>
+      </div>
+
+      <div class="diff__media">
+        <div class="media photo reveal" style="--img:url('images/ocean-cage.jpg')">
+          <span class="media__label">Mar adentro, en aguas abiertas</span>
+        </div>
+        <div class="media photo reveal d1" style="--img:url('images/fish-school.jpg')">
+          <span class="media__label">En el mar abierto</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REACH ===================== -->
+    <section class="section" id="reach">
+      <div class="reach__head">
+        <p class="eyebrow reveal"><span class="idx">07</span>Alcance Global</p>
+        <h2 class="reveal d1">Del Pacífico<br /><span class="serif-it glow">al mundo</span></h2>
+      </div>
+      <div class="markets">
+        <div class="market reveal"><h3>México</h3><p>Criado y procesado en el origen — a las mejores cocinas de la Ciudad de México en un día.</p></div>
+        <div class="market reveal d1"><h3>EE. UU.</h3><p>A horas del hub de Los Ángeles — el mismo día a chefs, barras de sushi y mercados hispanos.</p></div>
+        <div class="market reveal d2"><h3>Japón</h3><p>Hiramasa grado sashimi al mercado Toyosu de Tokio — un vuelo más corto que el de cualquier proveedor australiano.</p></div>
+        <div class="market reveal d3"><h3>Europa</h3><p>Abasto premium para chefs e importadores que buscan un origen responsable y trazable.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+      <p class="eyebrow reveal"><span class="idx">08</span>Contacto</p>
+      <h2 class="reveal d1">Hablemos en <span class="serif-it glow">fresco</span></h2>
+      <p class="contact__lede reveal d2">Envíanos tu consulta — te respondemos en un día hábil.</p>
+
+      <!-- Inline AJAX form (FormSubmit, no signup). Inquiries go directly to
+           rzambrano@isuriacorp.com. The FIRST submission triggers a one-time activation
+           email to that address — click the link once and the form is live thereafter. -->
+      <form class="cform reveal d2" id="contactForm" action="https://formsubmit.co/rzambrano@isuriacorp.com" method="POST">
+        <div class="cform__row">
+          <div class="field">
+            <label for="cf-name">Nombre</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre" />
+          </div>
+          <div class="field">
+            <label for="cf-email">Correo</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="tu@empresa.com" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-company">Empresa <span class="opt">(opcional)</span></label>
+          <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Empresa o restaurante" />
+        </div>
+        <div class="field">
+          <label for="cf-message">Mensaje</label>
+          <textarea id="cf-message" name="message" rows="4" required placeholder="Cuéntanos qué buscas — especies, volúmenes, mercados, tiempos…"></textarea>
+        </div>
+
+        <!-- FormSubmit options + honeypot (spam trap) -->
+        <input type="hidden" name="_subject" value="Nueva consulta desde sigrico.com (ES)" />
+        <input type="hidden" name="_cc" value="" /> <!-- unused: single recipient (rzambrano@isuriacorp.com) -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <button class="btn-gold" type="submit" id="cf-submit">
+          <span class="btn-label">Enviar consulta</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="cform__status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="cform__done reveal" id="contactDone" hidden>
+        <h3>Gracias — tu consulta va <span class="serif-it glow">en camino</span>.</h3>
+        <p>Hemos recibido tu mensaje y te responderemos en un día hábil.</p>
+      </div>
+
+      <p class="contact__addr reveal d3">
+        Juan Salvador Agraz #40, Piso 5, Suite 505 · Ciudad de México, México
+      </p>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <img src="images/sigrico-logo-white.png" alt="SigriCo — Siempre Fresco" />
+    <p class="footer__note">Siempre Fresco · © 2026 SigriCo · Rewilding Protein Systems</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
