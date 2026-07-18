@@ -6,9 +6,9 @@
 
 :root {
   /* ocean canvas */
-  --bg:        #081428;   /* deep navy */
-  --bg-2:      #0c1b36;
-  --bg-3:      #102344;
+  --bg:        #0e1e36;   /* deep navy — lifted a touch lighter */
+  --bg-2:      #122544;
+  --bg-3:      #162d52;
 
   /* ink */
   --ink:       #edf2f8;
@@ -102,7 +102,7 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled {
-  background: rgba(8, 20, 40, 0.72);
+  background: rgba(14, 30, 54, 0.72);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   padding-top: 1rem; padding-bottom: 1rem;
@@ -326,7 +326,7 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 /* real photography, tinted into the deep-ocean palette */
 .media.photo, .gcell.photo {
   background-image:
-    linear-gradient(180deg, rgba(8,20,40,0.18) 0%, rgba(8,20,40,0.52) 62%, rgba(8,20,40,0.86) 100%),
+    linear-gradient(180deg, rgba(14, 30, 54,0.18) 0%, rgba(14, 30, 54,0.52) 62%, rgba(14, 30, 54,0.86) 100%),
     var(--img);
   background-size: cover;
   background-position: center;
@@ -358,9 +358,9 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 .interlude::after {         /* depth overlay — darker at the seams so it melts into the dark sections */
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(8,20,40,0.85) 0%, rgba(8,20,40,0.28) 26%,
-                    rgba(8,20,40,0.34) 68%, rgba(8,20,40,0.92) 100%),
-    linear-gradient(90deg, rgba(8,20,40,0.55), transparent 42%);
+    linear-gradient(180deg, rgba(14, 30, 54,0.85) 0%, rgba(14, 30, 54,0.28) 26%,
+                    rgba(14, 30, 54,0.34) 68%, rgba(14, 30, 54,0.92) 100%),
+    linear-gradient(90deg, rgba(14, 30, 54,0.55), transparent 42%);
 }
 .interlude__cap {
   position: absolute; left: 0; bottom: 0; z-index: 2;
@@ -414,7 +414,7 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
   aspect-ratio: 3 / 2; border-radius: 5px; overflow: hidden;
   border: 1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(8,20,40,0.10), rgba(8,20,40,0.42)),
+    linear-gradient(180deg, rgba(14, 30, 54,0.10), rgba(14, 30, 54,0.42)),
     var(--img) center / cover no-repeat;
   transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
 }
