@@ -126,12 +126,15 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 }
 .nav__cta:hover { border-color: var(--aqua); color: var(--aqua) !important; }
 .nav__end { display: flex; align-items: center; gap: 1.1rem; }
-.nav__lang {
+.nav__lang { display: flex; align-items: center; gap: 0.5rem; }
+.nav__lang a {
   font-family: var(--mono);
   font-size: 0.81rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--muted); transition: color 0.35s var(--ease);
 }
-.nav__lang:hover { color: var(--gold-lit); }
+.nav__lang a:hover { color: var(--gold-lit); }
+.nav__lang a.is-active { color: var(--ink); }        /* current language */
+.nav__lang-sep { color: var(--line-2); font-size: 0.72rem; user-select: none; }
 .nav__burger { display: none; }
 
 /* ============================================================
