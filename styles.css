@@ -247,6 +247,7 @@ h1, h2, h3 { font-weight: 200; line-height: 1.02; letter-spacing: -0.02em; }
 }
 .hero__cue span {
   font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.3em;
+  margin-right: -0.3em;                         /* offset trailing letter-spacing so text optically centers over the line */
   text-transform: uppercase; color: var(--faint);
   transition: color 0.4s var(--ease), letter-spacing 0.4s var(--ease);
 }
