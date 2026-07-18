@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SigriCo — いつでも新鮮 · Rewilding Protein Systems</title>
+  <meta name="description" content="SigriCoは太平洋の外洋でプレミアムなセリオラ（ヒラマサ・カンパチ）を育てる、メキシコ発のサステナブルな海のタンパク質。海から食卓へ、いつでも新鮮。" />
+  <meta name="theme-color" content="#081428" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Latin: Jost + Caudex (brand). Japanese glyphs fall back to Noto Sans/Serif JP. -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* JP-only: append Japanese fonts to the brand stacks; keep Latin on Jost/Caudex */
+    :root {
+      --sans:  "Jost", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --label: "Jost", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono:  "Jost", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+      --serif: "Caudex", "Noto Serif JP", Georgia, serif;
+    }
+    /* Japanese accent words read upright (Mincho); Latin scientific names stay italic */
+    .serif-it { font-style: normal; }
+    .roster__sci { font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <a class="nav__logo" href="#top" aria-label="SigriCo ホーム">
+      <img src="images/sigrico-logo.png" alt="SigriCo" />
+    </a>
+    <div class="nav__links">
+      <a href="#species">魚種</a>
+      <a href="#method">育て方</a>
+      <a href="#technology">テクノロジー</a>
+      <a href="#sustainability">サステナビリティ</a>
+      <a href="#reach">展開</a>
+    </div>
+    <div class="nav__end">
+      <div class="nav__lang">
+        <a href="index.html" aria-label="View the site in English">ENG</a>
+        <span class="nav__lang-sep" aria-hidden="true">·</span>
+        <a href="es.html" aria-label="Ver el sitio en español">ESP</a>
+        <span class="nav__lang-sep" aria-hidden="true">·</span>
+        <a href="jp.html" class="is-active" aria-current="true">JPN</a>
+      </div>
+      <a class="nav__cta" href="#contact">お問い合わせ →</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <canvas id="particles"></canvas>
+    <div class="rays"></div>
+    <div class="hero__inner">
+      <p class="eyebrow hero__eyebrow">Rewilding Protein Systems · Baja California, México</p>
+      <h1>
+        <span class="l1">大海原で</span>
+        <span class="l2 serif-it glow">育てる</span>
+      </h1>
+      <p class="hero__sub">いつでも新鮮 — メキシコ太平洋産のサステナブルな <span class="fish">ヒラマサ</span>、<span class="fish">カンパチ</span>、<span class="fish">ワチナンゴ</span>、<span class="fish">ロバロ＆トトアバ</span></p>
+    </div>
+    <a class="hero__cue" href="#philosophy" aria-label="次のセクションへ">
+      <span>スクロール</span>
+      <i></i>
+    </a>
+  </header>
+
+  <main>
+    <!-- ===================== STATEMENT ===================== -->
+    <section class="section statement" id="philosophy">
+      <p class="eyebrow reveal"><span class="idx">01</span>哲学</p>
+      <h2 class="big reveal d1">
+        水産養殖は、地球にもっとも<span class="serif-it glow">軽い負荷</span>で育つ動物性タンパク質です。
+      </h2>
+      <p class="lede reveal d2">
+        SigriCoは、海のリワイルディング（再野生化）によるタンパク質生産と海洋生息地の創出において、
+        メキシコを世界の基準へと押し上げるために生まれたメキシコの企業です。
+      </p>
+    </section>
+
+    <!-- ===================== INTERLUDE ===================== -->
+    <section class="interlude" aria-label="外洋の太平洋を泳ぐ魚">
+      <video class="interlude__video" autoplay muted loop playsinline preload="metadata" poster="images/interlude-deep.jpg">
+        <source src="videos/interlude-deep.mp4" type="video/mp4" />
+      </video>
+      <p class="interlude__cap">外洋の太平洋は、<span class="serif-it glow">生きている</span></p>
+    </section>
+
+    <!-- ===================== SPECIES / PORTFOLIO ===================== -->
+    <section class="section" id="species">
+      <div class="species__head">
+        <p class="eyebrow reveal"><span class="idx">02</span>ラインナップ</p>
+        <h2 class="reveal d1">メキシコ太平洋に生きる<br /><span class="serif-it glow">5つの在来種</span></h2>
+        <p class="species__intro reveal d2">
+          バランスを見据えて編んだラインナップ — 世界でもっとも珍重される寿司種から、
+          メキシコ料理を支える定番まで。すべての魚種が、バハ・カリフォルニア・スル沖のこの海の在来種であり、
+          幾千年も栄えてきた場所で育てられます。
+        </p>
+      </div>
+
+      <ol class="roster">
+        <li class="roster__row reveal">
+          <span class="roster__idx">01</span>
+          <div class="roster__name">
+            <h3>ヒラマサ <span class="roster__alt">· イエローテール</span></h3>
+            <p class="roster__sci serif-it">Seriola lalandi</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-hiramasa.jpg')"></div>
+          <p class="roster__desc">世界でもっとも珍重される寿司種のひとつ — 締まりのある身、澄んだ味わい、豊富なオメガ3。</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">02</span>
+          <div class="roster__name">
+            <h3>カンパチ <span class="roster__alt">· アルマコジャック</span></h3>
+            <p class="roster__sci serif-it">Seriola rivoliana</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-almaco.jpg')"></div>
+          <p class="roster__desc">バターのように濃厚で力強い風味 — 南北アメリカで唯一、この規模で育てられる存在。</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">03</span>
+          <div class="roster__name">
+            <h3>ワチナンゴ <span class="roster__alt">· 太平洋フエダイ</span></h3>
+            <p class="roster__sci serif-it">Lutjanus peru</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-snapper.jpg')"></div>
+          <p class="roster__desc">メキシコ美食の魂 — ついに、安定した品質で通年の供給が可能に。</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">04</span>
+          <div class="roster__name">
+            <h3>ロバロ <span class="roster__alt">· 太平洋スヌーク</span></h3>
+            <p class="roster__sci serif-it">Centropomus viridis</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-snook.jpg')"></div>
+          <p class="roster__desc">ラインナップでもっとも汎用性の高い白身 — 澄んで締まり、シェフの意のままに。</p>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__idx">05</span>
+          <div class="roster__name">
+            <h3>トトアバ</h3>
+            <p class="roster__sci serif-it">Totoaba macdonaldi</p>
+          </div>
+          <div class="roster__photo" style="--img:url('images/fish-totoaba.jpg')"></div>
+          <p class="roster__desc">カリフォルニア湾の固有種。認証された合法的な親魚から育て、保護された野生種への圧力をやわらげます。</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== STATS ===================== -->
+    <section class="section" style="padding-top:0;">
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat__num">1<small>位</small></div>
+          <div class="stat__label">メキシコ<br />太平洋で</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num">90<small>分</small></div>
+          <div class="stat__label">海から<br />氷まで</div>
+        </div>
+        <div class="stat reveal d1">
+          <div class="stat__num">0<small>投与</small></div>
+          <div class="stat__label">抗生物質</div>
+        </div>
+        <div class="stat reveal d2">
+          <div class="stat__num">100<small>%</small></div>
+          <div class="stat__label">生簀から食卓まで<br />追跡可能</div>
+        </div>
+        <div class="stat reveal d3">
+          <div class="stat__num">330<small>ft</small></div>
+          <div class="stat__label">外洋の<br />深海</div>
+        </div>
+        <div class="stat reveal d4">
+          <div class="stat__num">4<small>×</small></div>
+          <div class="stat__label">飼料効率<br />陸上比</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== METHOD ===================== -->
+    <section class="section" id="method">
+      <div style="text-align:center;">
+        <p class="eyebrow reveal"><span class="idx">03</span>育て方</p>
+        <h2 class="reveal d1" style="font-size:clamp(2rem,6vw,4.6rem);margin-top:1.4rem;">
+          海で育てる、<br /><span class="serif-it glow">いつも沖合で</span>
+        </h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__n">/ 01</div>
+          <h3>深く、開けた海</h3>
+          <p>生簀は岸から7マイル沖、勢いのある潮流の中、水深330フィートに設置 — 海が自然に浄化を担います。</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step__n">/ 02</div>
+          <h3>低密度</h3>
+          <p>1尾あたりゆとりある空間。より澄んだ水の中で、力強く泳げます。</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step__n">/ 03</div>
+          <h3>在来の環境</h3>
+          <p>それぞれの魚種を、その在来の海で育てる。いまある資源の持続可能性を高めます。</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step__n">/ 04</div>
+          <h3>初日からの低温流通</h3>
+          <p>海から氷へ、そして輸出まで数時間 — 海の鮮度を、そのままに。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TECHNOLOGY ===================== -->
+    <section class="section" id="technology">
+      <div style="text-align:center;">
+        <p class="eyebrow reveal"><span class="idx">04</span>テクノロジー</p>
+        <h2 class="reveal d1" style="font-size:clamp(2rem,6vw,4.6rem);margin-top:1.4rem;">
+          <span class="serif-it glow">大海原</span>のための設計
+        </h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__n">/ 01</div>
+          <h3>沈降式生簀</h3>
+          <p>嵐や赤潮が近づくと、生簀は水面下30〜65フィートまで沈み、やり過ごします — 一つの育成サイクルをまるごと守るために。</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step__n">/ 02</div>
+          <h3>海洋用銅合金メッシュ</h3>
+          <p>銅合金の網は、それ自体で生物付着を抑え、化学的に不活性 — だから水は清らかに保たれ、その硬質な形状がウミガメ、イルカ、ジンベエザメを安全に守ります。</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step__n">/ 03</div>
+          <h3>AIによる精密給餌</h3>
+          <p>バイオマスカメラが魚をリアルタイムで捉え、ペレットが通り過ぎた瞬間に給餌を止めます — 無駄を抑え、水をより清らかに。</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step__n">/ 04</div>
+          <h3>生きたデジタルツイン</h3>
+          <p>潮流・水温・負荷のすべての計測値が、操業全体のリアルタイムモデルへ流れ込みます — 沖合では太陽と波で発電し、衛星でつながります。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INTERLUDE ===================== -->
+    <section class="interlude" aria-label="ひとつになって動く魚の群れ">
+      <video class="interlude__video" autoplay muted loop playsinline preload="metadata" poster="images/interlude-swarm.jpg">
+        <source src="videos/interlude-swarm.mp4" type="video/mp4" />
+      </video>
+      <p class="interlude__cap">幾千が、<span class="serif-it glow">ひとつ</span>に</p>
+    </section>
+
+    <!-- ===================== SUSTAINABILITY ===================== -->
+    <section class="section split rev" id="sustainability">
+      <div class="split__media reveal">
+        <div class="media wide photo" style="--img:url('images/ocean-aerial.jpg')">
+          <span class="media__label">外洋養殖</span>
+        </div>
+      </div>
+      <div class="split__body">
+        <p class="eyebrow reveal"><span class="idx">05</span>責任</p>
+        <h2 class="reveal d1">海を、<br /><span class="serif-it glow">より豊かに</span></h2>
+        <p class="reveal d2">
+          水産養殖は、もっとも軽い負荷で動物性タンパク質を生み出す方法 — 陸上で育てるどんな食料と比べても、
+          土地・淡水・炭素はごくわずかです。
+        </p>
+        <p class="reveal d2">
+          固有種トトアバを認証済みの合法的な親魚から育てることで、保護された野生種への圧力をやわらげます —
+          そして規模の拡大とともに、ASC完全認証の取得を目指します。
+        </p>
+        <p class="reveal d2">
+          私たちの約束はシンプルです — 海からより多くの食料を生み出し、海にはさらに多くを還す。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== THE DIFFERENCE ===================== -->
+    <section class="section" id="difference">
+      <div class="diff__head">
+        <p class="eyebrow reveal"><span class="idx">06</span>際立つ理由</p>
+        <h2 class="reveal d1"><span class="serif-it glow">SigriCo</span>の違い</h2>
+        <p class="diff__intro reveal d2">
+          外洋養殖 — 海を食卓へ届ける新しいかたち。水の中から設計されました。
+        </p>
+      </div>
+
+      <div class="diff__grid">
+        <div class="diff__item reveal">
+          <h3>その種で初</h3>
+          <p>ラテンアメリカ太平洋岸で唯一の、この種の沈降式生簀による商業操業。</p>
+        </div>
+        <div class="diff__item reveal d1">
+          <h3>唯一無二のラインナップ</h3>
+          <p>太平洋の在来5魚種 — うち2種は、この規模で育てられる唯一の存在。</p>
+        </div>
+        <div class="diff__item reveal d2">
+          <h3>クリーンな育成</h3>
+          <p>抗生物質ゼロ、生簀から食卓まで完全なトレーサビリティ。</p>
+        </div>
+      </div>
+
+      <div class="diff__media">
+        <div class="media photo reveal" style="--img:url('images/ocean-cage.jpg')">
+          <span class="media__label">沖合、開けた海で</span>
+        </div>
+        <div class="media photo reveal d1" style="--img:url('images/fish-school.jpg')">
+          <span class="media__label">外洋にて</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REACH ===================== -->
+    <section class="section" id="reach">
+      <div class="reach__head">
+        <p class="eyebrow reveal"><span class="idx">07</span>グローバル展開</p>
+        <h2 class="reveal d1">太平洋から<br /><span class="serif-it glow">世界へ</span></h2>
+      </div>
+      <div class="markets">
+        <div class="market reveal"><h3>メキシコ</h3><p>産地で育て、加工 — メキシコシティの一流の厨房へ、1日で。</p></div>
+        <div class="market reveal d1"><h3>アメリカ</h3><p>ロサンゼルス拠点から数時間 — シェフ、寿司カウンター、ヒスパニック市場へ即日。</p></div>
+        <div class="market reveal d2"><h3>日本</h3><p>刺身グレードのヒラマサを東京・豊洲市場へ — どのオーストラリア産よりも短いフライトで。</p></div>
+        <div class="market reveal d3"><h3>ヨーロッパ</h3><p>責任ある、追跡可能な産地を求めるシェフや輸入業者へ、プレミアムな供給を。</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+      <p class="eyebrow reveal"><span class="idx">08</span>お問い合わせ</p>
+      <h2 class="reveal d1"><span class="serif-it glow">鮮度</span>の話をしましょう</h2>
+      <p class="contact__lede reveal d2">お問い合わせください — 1営業日以内にご返信します。</p>
+
+      <!-- Inline AJAX form (FormSubmit, no signup). Inquiries go directly to
+           rzambrano@isuriacorp.com. The FIRST submission triggers a one-time activation
+           email to that address — click the link once and the form is live thereafter. -->
+      <form class="cform reveal d2" id="contactForm" action="https://formsubmit.co/rzambrano@isuriacorp.com" method="POST">
+        <div class="cform__row">
+          <div class="field">
+            <label for="cf-name">お名前</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="お名前" />
+          </div>
+          <div class="field">
+            <label for="cf-email">メールアドレス</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-company">会社名 <span class="opt">（任意）</span></label>
+          <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="会社名・店舗名" />
+        </div>
+        <div class="field">
+          <label for="cf-message">メッセージ</label>
+          <textarea id="cf-message" name="message" rows="4" required placeholder="ご希望をお聞かせください — 魚種、数量、市場、時期など…"></textarea>
+        </div>
+
+        <!-- FormSubmit options + honeypot (spam trap) -->
+        <input type="hidden" name="_subject" value="sigrico.com からの新規お問い合わせ (JP)" />
+        <input type="hidden" name="_cc" value="" /> <!-- unused: single recipient (rzambrano@isuriacorp.com) -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <button class="btn-gold" type="submit" id="cf-submit">
+          <span class="btn-label">送信する</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="cform__status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="cform__done reveal" id="contactDone" hidden>
+        <h3>ありがとうございます — お問い合わせを<span class="serif-it glow">送信しました</span>。</h3>
+        <p>メッセージを受け付けました。1営業日以内にご返信します。</p>
+      </div>
+
+      <p class="contact__addr reveal d3">
+        Juan Salvador Agraz #40, Piso 5, Suite 505 · Ciudad de México, México
+      </p>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <img src="images/sigrico-logo-white.png" alt="SigriCo — Everyday Fresh" />
+    <p class="footer__note">いつでも新鮮 · © 2026 SigriCo · Rewilding Protein Systems</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -91,19 +91,25 @@
     const statusEl = document.getElementById("cf-status");
     const doneEl = document.getElementById("contactDone");
     const btn = document.getElementById("cf-submit");
-    // Language-aware status strings (EN default · ES on the /es page)
-    const ES = document.documentElement.lang === "es";
-    const T = ES
-      ? {
-          sending: "Enviando…",
-          fail: "Algo salió mal — inténtalo de nuevo en un momento.",
-          net: "Error de red — revisa tu conexión e inténtalo de nuevo.",
-        }
-      : {
-          sending: "Sending…",
-          fail: "Something went wrong — please try again in a moment.",
-          net: "Network error — please check your connection and try again.",
-        };
+    // Language-aware status strings (EN default · ES on es.html · JA on jp.html)
+    const STR = {
+      es: {
+        sending: "Enviando…",
+        fail: "Algo salió mal — inténtalo de nuevo en un momento.",
+        net: "Error de red — revisa tu conexión e inténtalo de nuevo.",
+      },
+      ja: {
+        sending: "送信中…",
+        fail: "問題が発生しました — 少し時間をおいて再度お試しください。",
+        net: "ネットワークエラー — 接続を確認して再度お試しください。",
+      },
+      en: {
+        sending: "Sending…",
+        fail: "Something went wrong — please try again in a moment.",
+        net: "Network error — please check your connection and try again.",
+      },
+    };
+    const T = STR[document.documentElement.lang] || STR.en;
     const setStatus = (msg, kind) => {
       statusEl.textContent = msg;
       statusEl.className = "cform__status" + (kind ? " " + kind : "");
